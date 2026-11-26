@@ -1,0 +1,50 @@
+{
+  "gemma4_q4_0_noMTP": {
+    "n": 124,
+    "mean_ms": 1175,
+    "median_ms": 1169,
+    "p90_ms": 1495,
+    "min_ms": 713,
+    "max_ms": 1875
+  },
+  "gemma4_q4km_MTP": {
+    "n": 124,
+    "mean_ms": 900,
+    "median_ms": 907,
+    "p90_ms": 1065,
+    "min_ms": 613,
+    "max_ms": 1374
+  },
+  "gemma4_q4km_noMTP": {
+    "n": 124,
+    "mean_ms": 1218,
+    "median_ms": 1207,
+    "p90_ms": 1512,
+    "min_ms": 759,
+    "max_ms": 1976
+  },
+  "ornith_v6_MTP": {
+    "n": 124,
+    "mean_ms": 1259,
+    "median_ms": 1242,
+    "p90_ms": 1536,
+    "min_ms": 928,
+    "max_ms": 1811
+  },
+  "ornith_v6_noMTP": {
+    "n": 124,
+    "mean_ms": 1719,
+    "median_ms": 1731,
+    "p90_ms": 2137,
+    "min_ms": 974,
+    "max_ms": 2607
+  },
+  "qwen35_4b_noMTP": {
+    "n": 124,
+    "mean_ms": 985,
+    "median_ms": 979,
+    "p90_ms": 1256,
+    "min_ms": 595,
+    "max_ms": 1615
+  }
+}

@@ -1,0 +1,25 @@
+[1/5] cold start
+  health after 8.13s, log listening at 8.003139000000001s, first req ttft=970 ms total=1960 ms -> '檔案室,警衛室,會議室B'
+[2/5] prefill sweep
+  prefill ~ 128 tok -> actual 115 tok, 222.5 tok/s (517 ms)
+  prefill ~ 256 tok -> actual 219 tok, 260.3 tok/s (841 ms)
+  prefill ~ 512 tok -> actual 431 tok, 272.8 tok/s (1580 ms)
+  prefill ~1024 tok -> actual 851 tok, 302.5 tok/s (2813 ms)
+  prefill ~2048 tok -> actual 1691 tok, 308.5 tok/s (5481 ms)
+[3/5] decode
+  decode run 1: 128 tok, 10.27 tok/s (12362 ms)
+  decode run 2: 128 tok, 10.25 tok/s (12385 ms)
+  decode run 3: 128 tok, 10.26 tok/s (12379 ms)
+[4/5] e2e nav prompts
+  e2e  1/10 c1-001     1837 ms  ttft   948 ms  -> '大廳,櫃檯,會議室'
+  e2e  2/10 c1-002     1644 ms  ttft   945 ms  -> '停車場,警衛室,辦公室'
+  e2e  3/10 c1-003     1760 ms  ttft   962 ms  -> '電梯,影印機,茶水間'
+  e2e  4/10 c1-004     1812 ms  ttft  1007 ms  -> '入口,櫃檯,休息區'
+  e2e  5/10 c1-005     1798 ms  ttft   953 ms  -> '樓梯口,洗手間,圖書室'
+  e2e  6/10 c1-006     1938 ms  ttft   947 ms  -> '接待處,佈告欄,會議室A'
+  e2e  7/10 c1-007     1529 ms  ttft   937 ms  -> '大門,服務台,電梯'
+  e2e  8/10 c1-008     1762 ms  ttft   955 ms  -> '實驗室,儲藏室,器材室'
+  e2e  9/10 c1-009     1635 ms  ttft   948 ms  -> '餐廳,吸菸區,停車場'
+  e2e 10/10 c1-010     1725 ms  ttft   929 ms  -> '辦公室,茶水間,印表機'
+[5/5] wrote /home/jetson/Desktop/TensorRT_Edge_LLM_Test/benchmarks/ornith-v6-bench-results.json
+summary: {"decode_tps_median": 10.259452671933078, "e2e_ms_median": 1760.705931999837, "e2e_ms_p95": 1938.4663559903856, "ttft_ms_median": 947.9833510049502}

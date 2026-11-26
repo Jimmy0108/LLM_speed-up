@@ -1,0 +1,20 @@
+=== TensorRT Edge-LLM First Test: Qwen/Qwen3.5-4B ===
+Date: 2026-11-24
+Power Mode: MAXN_SUPER
+
+=== Engine Build ===
+- Total build time: 568.1s (including model download)
+- Engine cache: ~/.cache/tensorrt-edgellm/engines/model-56ae37fd4b27580d/
+- LLM engine: llm.engine (17.4MB)
+- Visual engine: visual.engine (12.9MB)
+- Text engine build: ~270s
+- Vision engine build: ~540s
+
+=== Inference Result ===
+Prompt: "Say 'Hello, World!' and nothing else."
+Response: "Hello, World!"
+TTFT: 0.152s
+Total time: 0.523s
+Prompt speed: 150.1 tok/s
+Generation speed: 10.9 tok/s
+Context: 27/8.19K tokens (0%)

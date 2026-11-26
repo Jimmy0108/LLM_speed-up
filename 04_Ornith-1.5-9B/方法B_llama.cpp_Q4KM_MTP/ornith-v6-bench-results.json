@@ -1,0 +1,249 @@
+{
+ "timestamp": "2026-11-25 13:27:37 UTC",
+ "cold_start": {
+  "wall_to_health_s": 8.756218912996701,
+  "log_model_loaded_s": 8.646026,
+  "log_listening_s": 8.646048,
+  "free_before": [
+   "total        used        free      shared  buff/cache   available",
+   "Mem:           15533        7081        8078          53         702        8451"
+  ],
+  "first_request": {
+   "prompt": "從檔案室經過警衛室走到會議室B，途中不要經過儲藏櫃",
+   "ttft_s": 0.9870845709956484,
+   "total_s": 1.4274538229947211,
+   "content": "檔案室,警衛室,會議室B",
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 256,
+    "prompt_ms": 982.708,
+    "prompt_per_token_ms": 3.838703125,
+    "prompt_per_second": 260.5046463445907,
+    "predicted_n": 11,
+    "predicted_ms": 436.441,
+    "predicted_per_token_ms": 43.644099999999995,
+    "predicted_per_second": 22.912604452835552,
+    "draft_n": 9,
+    "draft_n_accepted": 8
+   }
+  }
+ },
+ "prefill": [
+  {
+   "target_tokens": 128,
+   "prompt_n": 115,
+   "prompt_ms": 483.485,
+   "prefill_tps": 237.85639678583613,
+   "client_total_ms": 561.0613339958945
+  },
+  {
+   "target_tokens": 256,
+   "prompt_n": 220,
+   "prompt_ms": 815.344,
+   "prefill_tps": 269.8247610824388,
+   "client_total_ms": 865.6635700026527
+  },
+  {
+   "target_tokens": 512,
+   "prompt_n": 430,
+   "prompt_ms": 1541.964,
+   "prefill_tps": 278.8651356322197,
+   "client_total_ms": 1600.6628530012676
+  },
+  {
+   "target_tokens": 1024,
+   "prompt_n": 849,
+   "prompt_ms": 2814.889,
+   "prefill_tps": 301.61047202927006,
+   "client_total_ms": 2885.301075002644
+  },
+  {
+   "target_tokens": 2048,
+   "prompt_n": 1689,
+   "prompt_ms": 5503.54,
+   "prefill_tps": 306.8933813509123,
+   "client_total_ms": 5574.0320540062385
+  }
+ ],
+ "decode": [
+  {
+   "run": 1,
+   "predicted_n": 128,
+   "predicted_ms": 9078.757,
+   "decode_tps": 13.988699113766344,
+   "client_total_ms": 10074.7802840051
+  },
+  {
+   "run": 2,
+   "predicted_n": 128,
+   "predicted_ms": 9467.638,
+   "decode_tps": 13.414116593811464,
+   "client_total_ms": 10392.775736996555
+  },
+  {
+   "run": 3,
+   "predicted_n": 128,
+   "predicted_ms": 9407.792,
+   "decode_tps": 13.499448117050207,
+   "client_total_ms": 10334.546120007872
+  }
+ ],
+ "e2e": [
+  {
+   "id": "c1-001",
+   "prompt": "從大廳往會議室走，途中經過櫃檯",
+   "expected": [
+    "大廳",
+    "櫃檯",
+    "會議室"
+   ],
+   "content": "大廳,櫃檯,會議室",
+   "ttft_s": 0.9159252120007295,
+   "total_s": 1.3421824739925796,
+   "prompt_n": 251,
+   "prefill_tps": 275.2389150542528,
+   "decode_tps": 21.180058739362902
+  },
+  {
+   "id": "c1-002",
+   "prompt": "從停車場到辦公室，會先經過警衛室",
+   "expected": [
+    "停車場",
+    "警衛室",
+    "辦公室"
+   ],
+   "content": "停車場,警衛室,辦公室",
+   "ttft_s": 0.9313896939856932,
+   "total_s": 1.3577098389941966,
+   "prompt_n": 249,
+   "prefill_tps": 268.50587801422114,
+   "decode_tps": 16.441535075666295
+  },
+  {
+   "id": "c1-003",
+   "prompt": "從電梯出來往茶水間，會路過影印機",
+   "expected": [
+    "電梯",
+    "影印機",
+    "茶水間"
+   ],
+   "content": "電梯,影印機,茶水間",
+   "ttft_s": 0.9262148019915912,
+   "total_s": 1.3617755739978747,
+   "prompt_n": 251,
+   "prefill_tps": 272.3355868831897,
+   "decode_tps": 18.40201502064476
+  },
+  {
+   "id": "c1-004",
+   "prompt": "從入口走到櫃檯，再到休息區",
+   "expected": [
+    "入口",
+    "櫃檯",
+    "休息區"
+   ],
+   "content": "入口,櫃檯,休息區",
+   "ttft_s": 0.9124026950012194,
+   "total_s": 1.3408455020107795,
+   "prompt_n": 248,
+   "prefill_tps": 273.00568248118134,
+   "decode_tps": 18.70295039042409
+  },
+  {
+   "id": "c1-005",
+   "prompt": "從樓梯口到圖書室，中間會經過洗手間",
+   "expected": [
+    "樓梯口",
+    "洗手間",
+    "圖書室"
+   ],
+   "content": "樓梯口,洗手間,圖書室",
+   "ttft_s": 0.9248808700067457,
+   "total_s": 1.3555056059994968,
+   "prompt_n": 250,
+   "prefill_tps": 271.58149508872026,
+   "decode_tps": 18.603829133131327
+  },
+  {
+   "id": "c1-006",
+   "prompt": "從接待處到會議室A，沿途經過佈告欄",
+   "expected": [
+    "接待處",
+    "佈告欄",
+    "會議室A"
+   ],
+   "content": "接待處,佈告欄,會議室A",
+   "ttft_s": 0.9113904690020718,
+   "total_s": 1.3439908220025245,
+   "prompt_n": 251,
+   "prefill_tps": 276.60352906430865,
+   "decode_tps": 23.160049840427256
+  },
+  {
+   "id": "c1-007",
+   "prompt": "從大門進去先到服務台，然後去電梯",
+   "expected": [
+    "大門",
+    "服務台",
+    "電梯"
+   ],
+   "content": "大門,服務台,電梯",
+   "ttft_s": 0.9180145299906144,
+   "total_s": 1.1976318699889816,
+   "prompt_n": 248,
+   "prefill_tps": 271.3549804580647,
+   "decode_tps": 21.606438718738183
+  },
+  {
+   "id": "c1-008",
+   "prompt": "從實驗室到器材室，會經過走廊上的儲藏室",
+   "expected": [
+    "實驗室",
+    "儲藏室",
+    "器材室"
+   ],
+   "content": "實驗室,儲藏室,器材室",
+   "ttft_s": 0.9216388740023831,
+   "total_s": 1.3572077420103597,
+   "prompt_n": 251,
+   "prefill_tps": 273.6004953150003,
+   "decode_tps": 18.397994618586576
+  },
+  {
+   "id": "c1-009",
+   "prompt": "從餐廳到停車場，途中經過吸菸區",
+   "expected": [
+    "餐廳",
+    "吸菸區",
+    "停車場"
+   ],
+   "content": "餐廳,吸菸區,停車場",
+   "ttft_s": 0.9169611190009164,
+   "total_s": 1.3481965950049926,
+   "prompt_n": 248,
+   "prefill_tps": 271.64894193832475,
+   "decode_tps": 16.256008917582037
+  },
+  {
+   "id": "c1-010",
+   "prompt": "從辦公室到印表機，中間經過茶水間",
+   "expected": [
+    "辦公室",
+    "茶水間",
+    "印表機"
+   ],
+   "content": "辦公室,茶水間,印表機",
+   "ttft_s": 0.9172358150099171,
+   "total_s": 1.2128440240048803,
+   "prompt_n": 249,
+   "prefill_tps": 272.678292179718,
+   "decode_tps": 27.138975300140107
+  }
+ ],
+ "summary": {
+  "decode_tps_median": 13.499448117050207,
+  "e2e_ms_median": 1346.0937085037585,
+  "e2e_ms_p95": 1361.7755739978747,
+  "ttft_ms_median": 917.6251725002658
+ }
+}

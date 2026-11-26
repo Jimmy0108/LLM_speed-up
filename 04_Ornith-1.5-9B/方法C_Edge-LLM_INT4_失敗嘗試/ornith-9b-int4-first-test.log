@@ -1,0 +1,21 @@
+Resolving checkpoint [0.0s]
+Checking engine cache [0.0s]
+Building engine (first run can take several minutes) [0.1s]
+Building text engine (1/2) [1.2s]
+WARNING: [TRT] Unused Input: positions
+WARNING: [TRT] [RemoveDeadLayers] Input Tensor positions is unused or used only at compile-time, but is not being removed.
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000005 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000006 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000007 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000008 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000009 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000a due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000b due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000c due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000d due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000e due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x000000000000000f due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] Error Code: 9: Skipping tactic 0x0000000000000010 due to exception Assertion pluginUtils::isSuccess(status) failed.  In execute at /_src/runtime/gpu/cuda/pluginV3Runner.cpp:252
+ERROR: [TRT] IBuilder::buildSerializedNetwork: Error Code 10: Internal Error (Could not find any implementation for node int4_groupwise_gemm_v2_4. In computeCosts at /_src/optimizer/common/tactic/optimizer.cpp:4265)
+[15:13:31.694] [WARNING] [pluginUtils.cpp:74:builtForCompact] Compact build report: the build queried no attention or recurrent plugin layer of this plugin library (was another copy of the library loaded?); the engine will run without compact steps.
+Error: build_serialized_network returned None

@@ -1,0 +1,43 @@
+2026-11-25 06:47:37,007 INFO tensorrt_edgellm.builder.core.builder: Loaded plugin library /home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/_native/payloads/jetson-orin-jp72-cu13-sm87/lib/libNvInfer_edgellm_plugin.so
+2026-11-25 06:47:37,007 INFO tensorrt_edgellm.builder: Building 1 engines for qwen3_5: llm
+2026-11-25 06:47:37,007 INFO tensorrt_edgellm.builder: Building component llm
+2026-11-25 06:47:37,158 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-25 06:47:37,159 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-25 06:47:37,159 INFO tensorrt_edgellm.builder.core.builder: model_type=qwen3_5_text layers=32 hidden=4096 experts=0 quant=int4_gptq
+2026-11-25 06:47:37,254 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init CUDA: CPU +15, GPU +1, now: CPU 36, GPU 8938 (MiB)
+2026-11-25 06:47:37,647 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-25 06:47:37,648 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-25 06:47:37,651 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-25 06:47:37,655 INFO builder.qwen3_5: building layer 1/32
+2026-11-25 06:47:37,741 INFO builder.qwen3_5: building layer 2/32
+2026-11-25 06:47:37,816 INFO builder.qwen3_5: building layer 3/32
+2026-11-25 06:47:37,897 INFO builder.qwen3_5: building layer 4/32
+[06:47:38.367] [INFO] [pluginJitCompiler.cpp:143:compilePluginJitKernel] Compiled XQA kernel for SM87, dtype=1, kv_dtype=1, head_dim=256, q_heads_per_kv=4, tokens_per_page=128, sliding_window=0, spec_decode=0, contiguous_query_swa=0 with NVRTC (127136 bytes, 437 ms)
+2026-11-25 06:47:38,430 INFO builder.qwen3_5: building layer 5/32
+2026-11-25 06:47:38,523 INFO builder.qwen3_5: building layer 6/32
+2026-11-25 06:47:38,627 INFO builder.qwen3_5: building layer 7/32
+2026-11-25 06:47:38,741 INFO builder.qwen3_5: building layer 8/32
+2026-11-25 06:47:38,884 INFO builder.qwen3_5: building layer 9/32
+2026-11-25 06:47:39,021 INFO builder.qwen3_5: building layer 10/32
+2026-11-25 06:47:39,168 INFO builder.qwen3_5: building layer 11/32
+2026-11-25 06:47:39,331 INFO builder.qwen3_5: building layer 12/32
+2026-11-25 06:47:39,538 INFO builder.qwen3_5: building layer 13/32
+2026-11-25 06:47:39,731 INFO builder.qwen3_5: building layer 14/32
+2026-11-25 06:47:39,940 INFO builder.qwen3_5: building layer 15/32
+2026-11-25 06:47:40,152 INFO builder.qwen3_5: building layer 16/32
+2026-11-25 06:47:40,410 INFO builder.qwen3_5: building layer 17/32
+2026-11-25 06:47:40,647 INFO builder.qwen3_5: building layer 18/32
+2026-11-25 06:47:40,907 INFO builder.qwen3_5: building layer 19/32
+2026-11-25 06:47:41,172 INFO builder.qwen3_5: building layer 20/32
+2026-11-25 06:47:41,488 INFO builder.qwen3_5: building layer 21/32
+2026-11-25 06:47:41,784 INFO builder.qwen3_5: building layer 22/32
+2026-11-25 06:47:42,093 INFO builder.qwen3_5: building layer 23/32
+2026-11-25 06:47:42,416 INFO builder.qwen3_5: building layer 24/32
+2026-11-25 06:47:42,786 INFO builder.qwen3_5: building layer 25/32
+2026-11-25 06:47:43,146 INFO builder.qwen3_5: building layer 26/32
+2026-11-25 06:47:43,511 INFO builder.qwen3_5: building layer 27/32
+2026-11-25 06:47:43,894 INFO builder.qwen3_5: building layer 28/32
+2026-11-25 06:47:44,408 INFO builder.qwen3_5: building layer 29/32
+2026-11-25 06:47:44,824 INFO builder.qwen3_5: building layer 30/32
+2026-11-25 06:47:45,231 INFO builder.qwen3_5: building layer 31/32
+2026-11-25 06:47:45,667 INFO builder.qwen3_5: building layer 32/32

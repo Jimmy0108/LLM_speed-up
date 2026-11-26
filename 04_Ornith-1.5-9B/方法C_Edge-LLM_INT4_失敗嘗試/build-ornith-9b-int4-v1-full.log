@@ -1,0 +1,107 @@
+2026-11-24 15:19:25,016 INFO tensorrt_edgellm.builder.core.builder: Loaded plugin library /home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/_native/payloads/jetson-orin-jp72-cu13-sm87/lib/libNvInfer_edgellm_plugin.so
+2026-11-24 15:19:25,016 INFO tensorrt_edgellm.builder: Building 2 engines for qwen3_5: llm, visual
+2026-11-24 15:19:25,016 INFO tensorrt_edgellm.builder: Building component llm
+2026-11-24 15:19:25,101 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:19:25,101 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-24 15:19:25,102 INFO tensorrt_edgellm.builder.core.builder: model_type=qwen3_5_text layers=32 hidden=4096 experts=0 quant=int4_gptq
+2026-11-24 15:19:25,161 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init CUDA: CPU +15, GPU +0, now: CPU 36, GPU 3047 (MiB)
+2026-11-24 15:19:25,493 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:19:25,494 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-24 15:19:25,495 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:19:25,498 INFO builder.qwen3_5: building layer 1/32
+2026-11-24 15:19:25,687 INFO builder.qwen3_5: building layer 2/32
+2026-11-24 15:19:25,846 INFO builder.qwen3_5: building layer 3/32
+2026-11-24 15:19:26,020 INFO builder.qwen3_5: building layer 4/32
+[15:19:26.442] [INFO] [pluginJitCompiler.cpp:143:compilePluginJitKernel] Compiled XQA kernel for SM87, dtype=1, kv_dtype=1, head_dim=256, q_heads_per_kv=4, tokens_per_page=128, sliding_window=0, spec_decode=0, contiguous_query_swa=0 with NVRTC (127136 bytes, 377 ms)
+2026-11-24 15:19:26,576 INFO builder.qwen3_5: building layer 5/32
+2026-11-24 15:19:26,776 INFO builder.qwen3_5: building layer 6/32
+2026-11-24 15:19:26,979 INFO builder.qwen3_5: building layer 7/32
+2026-11-24 15:19:27,193 INFO builder.qwen3_5: building layer 8/32
+2026-11-24 15:19:27,417 INFO builder.qwen3_5: building layer 9/32
+2026-11-24 15:19:27,657 INFO builder.qwen3_5: building layer 10/32
+2026-11-24 15:19:27,901 INFO builder.qwen3_5: building layer 11/32
+2026-11-24 15:19:28,162 INFO builder.qwen3_5: building layer 12/32
+2026-11-24 15:19:28,435 INFO builder.qwen3_5: building layer 13/32
+2026-11-24 15:19:28,718 INFO builder.qwen3_5: building layer 14/32
+2026-11-24 15:19:29,004 INFO builder.qwen3_5: building layer 15/32
+2026-11-24 15:19:29,310 INFO builder.qwen3_5: building layer 16/32
+2026-11-24 15:19:29,631 INFO builder.qwen3_5: building layer 17/32
+2026-11-24 15:19:29,958 INFO builder.qwen3_5: building layer 18/32
+2026-11-24 15:19:30,287 INFO builder.qwen3_5: building layer 19/32
+2026-11-24 15:19:30,637 INFO builder.qwen3_5: building layer 20/32
+2026-11-24 15:19:31,012 INFO builder.qwen3_5: building layer 21/32
+2026-11-24 15:19:31,383 INFO builder.qwen3_5: building layer 22/32
+2026-11-24 15:19:31,768 INFO builder.qwen3_5: building layer 23/32
+2026-11-24 15:19:32,164 INFO builder.qwen3_5: building layer 24/32
+2026-11-24 15:19:32,595 INFO builder.qwen3_5: building layer 25/32
+2026-11-24 15:19:33,019 INFO builder.qwen3_5: building layer 26/32
+2026-11-24 15:19:33,454 INFO builder.qwen3_5: building layer 27/32
+2026-11-24 15:19:33,906 INFO builder.qwen3_5: building layer 28/32
+2026-11-24 15:19:34,399 INFO builder.qwen3_5: building layer 29/32
+2026-11-24 15:19:34,870 INFO builder.qwen3_5: building layer 30/32
+2026-11-24 15:19:35,352 INFO builder.qwen3_5: building layer 31/32
+2026-11-24 15:19:35,845 INFO builder.qwen3_5: building layer 32/32
+2026-11-24 15:19:48,015 INFO tensorrt_edgellm.builder.core.artifacts.external_weights: Recorded 400 runtime checkpoint binding(s) (source layouts: compressed-tensors-gptq=400; destination dtypes: F16=200, I8=200)
+2026-11-24 15:19:48,201 INFO tensorrt_edgellm.builder.core.builder: Building serialized engine (this may take several minutes)...
+2026-11-24 15:19:48,794 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init builder kernel library: CPU +177, GPU +181, now: CPU 3232, GPU 5527 (MiB)
+2026-11-24 15:19:48,858 WARNING tensorrt_edgellm.builder.core.builder: [TRT] Unused Input: positions
+2026-11-24 15:19:49,766 WARNING tensorrt_edgellm.builder.core.builder: [TRT] [RemoveDeadLayers] Input Tensor positions is unused or used only at compile-time, but is not being removed.
+2026-11-24 15:19:49,792 INFO tensorrt_edgellm.builder.core.builder: [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+2026-11-24 15:19:49,906 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine build.
+2026-11-24 15:21:39,033 INFO tensorrt_edgellm.builder.core.builder: [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+2026-11-24 15:21:39,073 INFO tensorrt_edgellm.builder.core.builder: [TRT] Detected 468 inputs and 57 output network tensors.
+2026-11-24 15:21:50,206 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Host Persistent Memory: 275664 bytes
+2026-11-24 15:21:50,206 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Device Persistent Memory: 0 bytes
+2026-11-24 15:21:50,206 INFO tensorrt_edgellm.builder.core.builder: [TRT] Max Scratch Memory: 254083072 bytes
+2026-11-24 15:21:50,209 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Started assigning block shifts. This will take 1457 steps to complete.
+2026-11-24 15:21:50,598 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 389.491ms to assign 22 blocks to 1457 nodes requiring 1160582656 bytes.
+2026-11-24 15:21:50,600 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Activation Memory: 1160582656 bytes
+2026-11-24 15:22:08,337 INFO tensorrt_edgellm.builder.core.builder: [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+2026-11-24 15:22:08,381 INFO tensorrt_edgellm.builder.core.builder: [TRT] Detected 468 inputs and 57 output network tensors.
+2026-11-24 15:22:15,680 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Host Persistent Memory: 275664 bytes
+2026-11-24 15:22:15,680 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Device Persistent Memory: 0 bytes
+2026-11-24 15:22:15,681 INFO tensorrt_edgellm.builder.core.builder: [TRT] Max Scratch Memory: 33864191 bytes
+2026-11-24 15:22:15,683 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Started assigning block shifts. This will take 1457 steps to complete.
+2026-11-24 15:22:16,069 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 385.568ms to assign 22 blocks to 1457 nodes requiring 34092032 bytes.
+2026-11-24 15:22:16,071 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Activation Memory: 34092032 bytes
+2026-11-24 15:22:17,298 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Weights Memory: 2926331264 bytes
+2026-11-24 15:22:17,329 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine execution.
+2026-11-24 15:22:17,334 INFO tensorrt_edgellm.builder.core.builder: [TRT] Engine generation completed in 147.543 seconds.
+2026-11-24 15:22:17,343 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 2793 MiB
+[15:22:19.842] [INFO] [pluginUtils.cpp:102:builtForCompact] Compact build report: all 56 attention and recurrent plugin layers reserved the compact workspace.
+2026-11-24 15:22:24,594 INFO tensorrt_edgellm.builder.core.builder: Engine written to /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/llm.engine (2955576572 bytes)
+2026-11-24 15:22:24,595 INFO tensorrt_edgellm.builder.core.builder: Build completed in 179.493 s (checkpoint identity 0.014 s, TensorRT 151.641 s, frontend and serialization 27.838 s)
+2026-11-24 15:22:25,483 INFO tensorrt_edgellm.builder.core.artifacts.runtime_artifacts: Wrote config.json
+2026-11-24 15:22:36,663 INFO tensorrt_edgellm.builder.core.artifacts.tokenizer: Copied tokenizer.json
+2026-11-24 15:22:36,665 INFO tensorrt_edgellm.builder.core.artifacts.tokenizer: Copied tokenizer_config.json
+2026-11-24 15:22:36,667 INFO tensorrt_edgellm.chat_template: Copied provider chat template to /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/chat_template.jinja
+2026-11-24 15:22:36,685 INFO tensorrt_edgellm.builder: Building component visual
+2026-11-24 15:22:36,686 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:22:36,686 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-24 15:22:36,686 INFO tensorrt_edgellm.builder.core.builder: root_model_type=qwen3_5 component=visual
+2026-11-24 15:22:36,694 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:22:36,694 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-24 15:22:36,695 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:22:38,865 INFO tensorrt_edgellm.builder.core.artifacts.external_weights: Recorded 0 runtime checkpoint binding(s) (source layouts: ; destination dtypes: )
+2026-11-24 15:22:38,898 INFO tensorrt_edgellm.builder.core.builder: Building serialized engine (this may take several minutes)...
+2026-11-24 15:22:39,431 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init builder kernel library: CPU -191, GPU -7, now: CPU 3928, GPU 5061 (MiB)
+2026-11-24 15:22:39,858 INFO tensorrt_edgellm.builder.core.builder: [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+2026-11-24 15:22:39,899 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine build.
+2026-11-24 15:24:58,486 INFO tensorrt_edgellm.builder.core.builder: [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+2026-11-24 15:24:58,491 INFO tensorrt_edgellm.builder.core.builder: [TRT] Detected 6 inputs and 1 output network tensors.
+2026-11-24 15:24:59,802 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Host Persistent Memory: 29456 bytes
+2026-11-24 15:24:59,803 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Device Persistent Memory: 0 bytes
+2026-11-24 15:24:59,803 INFO tensorrt_edgellm.builder.core.builder: [TRT] Max Scratch Memory: 98828288 bytes
+2026-11-24 15:24:59,803 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Started assigning block shifts. This will take 165 steps to complete.
+2026-11-24 15:24:59,807 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 3.95705ms to assign 9 blocks to 165 nodes requiring 155452416 bytes.
+2026-11-24 15:24:59,807 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Activation Memory: 155451392 bytes
+2026-11-24 15:25:00,179 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Weights Memory: 912024320 bytes
+2026-11-24 15:25:00,186 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine execution.
+2026-11-24 15:25:00,187 INFO tensorrt_edgellm.builder.core.builder: [TRT] Engine generation completed in 140.329 seconds.
+2026-11-24 15:25:00,187 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 2793 MiB
+2026-11-24 15:25:01,625 INFO tensorrt_edgellm.builder.core.builder: Engine written to /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/visual/visual.engine (918116284 bytes)
+2026-11-24 15:25:01,626 INFO tensorrt_edgellm.builder.core.builder: Build completed in 144.940 s (checkpoint identity 0.000 s, TensorRT 141.703 s, frontend and serialization 3.237 s)
+Engine outputs:
+  llm: /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/llm.engine (2955576572 bytes)
+  visual: /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/visual/visual.engine (918116284 bytes)
+Multistage config: /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Ornith-1.5-9B-INT4-v1-full/multistage_config.json

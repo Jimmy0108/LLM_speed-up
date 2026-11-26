@@ -1,0 +1,33 @@
+[info] http://127.0.0.1:8080/completion  items=124  rules=full
+[info] warmup 0.27s
+  10/124  18.5s
+  20/124  34.8s
+  30/124  53.2s
+  40/124  68.4s
+  50/124  87.4s
+  60/124  103.2s
+  70/124  121.0s
+  80/124  135.8s
+  90/124  150.3s
+  100/124  165.5s
+  110/124  182.5s
+  120/124  196.5s
+  124/124  201.9s
+
+=== ornith-v6-jetson ===
+  EM=1.0000  F1=1.0000  n=124  201.9s (1628 ms/題)
+  類別                     n      EM
+  C10_mix               10  1.0000
+  C18_cross_clause      12  1.0000
+  C19_correction        12  1.0000
+  C1_direct             12  1.0000
+  C2_order_trap         15  1.0000
+  C3_negation           10  1.0000
+  C4_multi              12  1.0000
+  C5_single              8  1.0000
+  C6_floor               8  1.0000
+  C7_long               10  1.0000
+  C8_no_place            5  1.0000
+  C9_en                 10  1.0000
+
+寫入 results_ornith-v6-jetson.json

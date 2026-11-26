@@ -1,0 +1,6 @@
+Resolving checkpoint [0.0s]
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:  44%|████▍     | 8/18 [00:01<00:01,  5.43it/s]Fetching 18 files:  72%|███████▏  | 13/18 [00:19<00:07,  1.54s/it]Resolving checkpoint [30.0s]
+Fetching 18 files:  78%|███████▊  | 14/18 [00:32<00:09,  2.30s/it]Resolving checkpoint [60.0s]
+Resolving checkpoint [90.0s]

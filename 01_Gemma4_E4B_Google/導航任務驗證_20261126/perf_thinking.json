@@ -1,0 +1,32 @@
+{
+  "raw_completion": {
+    "n": 20,
+    "prompt_n": 192.0,
+    "prompt_ms": 431.9,
+    "prefill_tps": 440.1,
+    "predicted_n": 7.0,
+    "predicted_ms": 298.6,
+    "decode_tps": 18.9,
+    "e2e_ms": 730.6
+  },
+  "chat_nothink": {
+    "n": 20,
+    "prompt_n": 39.0,
+    "prompt_ms": 262.0,
+    "prefill_tps": 146.5,
+    "predicted_n": 64.0,
+    "predicted_ms": 2237.7,
+    "decode_tps": 28.2,
+    "e2e_ms": 2499.8
+  },
+  "chat_think": {
+    "n": 20,
+    "prompt_n": 46.0,
+    "prompt_ms": 253.3,
+    "prefill_tps": 180.7,
+    "predicted_n": 64.0,
+    "predicted_ms": 1211.7,
+    "decode_tps": 52.0,
+    "e2e_ms": 1465.0
+  }
+}

@@ -1,0 +1,125 @@
+2026-11-24 16:22:07,997 INFO tensorrt_edgellm.builder.core.builder: Loaded plugin library /home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/_native/payloads/jetson-orin-jp72-cu13-sm87/lib/libNvInfer_edgellm_plugin.so
+2026-11-24 16:22:07,997 INFO tensorrt_edgellm.builder: Building 2 engines for gemma4: llm, visual
+2026-11-24 16:22:07,997 INFO tensorrt_edgellm.builder: Building component llm
+2026-11-24 16:22:08,122 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 16:22:08,123 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-24 16:22:08,123 INFO tensorrt_edgellm.builder.core.builder: model_type=gemma4_text layers=42 hidden=2560 experts=0 quant=int4_gptq
+2026-11-24 16:22:08,183 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init CUDA: CPU +15, GPU +0, now: CPU 36, GPU 3838 (MiB)
+2026-11-24 16:22:08,577 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 16:22:08,577 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-24 16:22:08,585 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+[16:22:11.589] [INFO] [pluginJitCompiler.cpp:143:compilePluginJitKernel] Compiled XQA kernel for SM87, dtype=1, kv_dtype=1, head_dim=256, q_heads_per_kv=4, tokens_per_page=128, sliding_window=1, spec_decode=0, contiguous_query_swa=0 with NVRTC (127520 bytes, 2958 ms)
+[16:22:17.448] [INFO] [pluginJitCompiler.cpp:143:compilePluginJitKernel] Compiled XQA kernel for SM87, dtype=1, kv_dtype=1, head_dim=512, q_heads_per_kv=4, tokens_per_page=128, sliding_window=0, spec_decode=0, contiguous_query_swa=0 with NVRTC (190256 bytes, 5399 ms)
+2026-11-24 16:23:52,160 INFO tensorrt_edgellm.builder.core.artifacts.external_weights: Recorded 686 runtime checkpoint binding(s) (source layouts: compressed-tensors-gptq=686; destination dtypes: F16=343, I8=343)
+2026-11-24 16:23:52,248 INFO tensorrt_edgellm.builder.core.builder: Building serialized engine (this may take several minutes)...
+2026-11-24 16:23:53,274 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init builder kernel library: CPU +158, GPU +186, now: CPU 1757, GPU 3858 (MiB)
+2026-11-24 16:23:53,411 WARNING tensorrt_edgellm.builder.core.builder: [TRT] Unused Input: positions
+2026-11-24 16:23:53,411 WARNING tensorrt_edgellm.builder.core.builder: [TRT] Unused Input: state_indices
+2026-11-24 16:23:56,549 WARNING tensorrt_edgellm.builder.core.builder: [TRT] [RemoveDeadLayers] Input Tensor positions is unused or used only at compile-time, but is not being removed.
+2026-11-24 16:23:56,549 WARNING tensorrt_edgellm.builder.core.builder: [TRT] [RemoveDeadLayers] Input Tensor state_indices is unused or used only at compile-time, but is not being removed.
+2026-11-24 16:23:56,589 INFO tensorrt_edgellm.builder.core.builder: [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+2026-11-24 16:23:56,768 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine build.
+2026-11-24 16:25:45,376 INFO tensorrt_edgellm.builder.core.builder: [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+2026-11-24 16:25:45,427 INFO tensorrt_edgellm.builder.core.builder: [TRT] Detected 743 inputs and 43 output network tensors.
+2026-11-24 16:26:00,052 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Host Persistent Memory: 370192 bytes
+2026-11-24 16:26:00,052 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Device Persistent Memory: 0 bytes
+2026-11-24 16:26:00,052 INFO tensorrt_edgellm.builder.core.builder: [TRT] Max Scratch Memory: 100859904 bytes
+2026-11-24 16:26:00,055 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Started assigning block shifts. This will take 1725 steps to complete.
+2026-11-24 16:26:00,604 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 549.335ms to assign 21 blocks to 1725 nodes requiring 811603968 bytes.
+2026-11-24 16:26:00,607 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Activation Memory: 811603968 bytes
+2026-11-24 16:26:34,239 INFO tensorrt_edgellm.builder.core.builder: [TRT] [GraphReduction] The approximate region cut reduction algorithm is called.
+2026-11-24 16:26:34,306 INFO tensorrt_edgellm.builder.core.builder: [TRT] Detected 743 inputs and 43 output network tensors.
+2026-11-24 16:26:42,974 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Host Persistent Memory: 370192 bytes
+2026-11-24 16:26:42,974 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Device Persistent Memory: 0 bytes
+2026-11-24 16:26:42,974 INFO tensorrt_edgellm.builder.core.builder: [TRT] Max Scratch Memory: 33866239 bytes
+2026-11-24 16:26:42,977 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Started assigning block shifts. This will take 1725 steps to complete.
+2026-11-24 16:26:43,551 INFO tensorrt_edgellm.builder.core.builder: [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 573.259ms to assign 21 blocks to 1725 nodes requiring 34026496 bytes.
+2026-11-24 16:26:43,553 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Activation Memory: 34026496 bytes
+2026-11-24 16:26:44,509 INFO tensorrt_edgellm.builder.core.builder: [TRT] Total Weights Memory: 1344420864 bytes
+2026-11-24 16:26:44,582 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine execution.
+2026-11-24 16:26:44,591 INFO tensorrt_edgellm.builder.core.builder: [TRT] Engine generation completed in 168.003 seconds.
+2026-11-24 16:26:44,605 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 1286 MiB
+[16:26:45.951] [INFO] [pluginUtils.cpp:102:builtForCompact] Compact build report: all 42 attention and recurrent plugin layers reserved the compact workspace.
+2026-11-24 16:26:47,744 INFO tensorrt_edgellm.builder.core.builder: Engine written to /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Gemma-4-E4B-INT4/llm.engine (1386113388 bytes)
+2026-11-24 16:26:47,745 INFO tensorrt_edgellm.builder.core.builder: Build completed in 279.622 s (checkpoint identity 0.020 s, TensorRT 173.703 s, frontend and serialization 105.899 s)
+2026-11-24 16:26:48,565 INFO tensorrt_edgellm.builder.core.artifacts.runtime_artifacts: Wrote config.json
+2026-11-24 16:26:56,381 INFO tensorrt_edgellm.builder.core.artifacts.tokenizer: Copied tokenizer.json
+2026-11-24 16:26:56,382 INFO tensorrt_edgellm.builder.core.artifacts.tokenizer: Copied tokenizer_config.json
+2026-11-24 16:26:56,385 INFO tensorrt_edgellm.chat_template: Copied provider chat template to /home/jetson/Desktop/TensorRT_Edge_LLM_Test/engines/Gemma-4-E4B-INT4/chat_template.jinja
+2026-11-24 16:26:56,412 INFO tensorrt_edgellm.builder: Building component visual
+2026-11-24 16:26:56,412 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 16:26:56,412 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-24 16:26:56,412 INFO tensorrt_edgellm.builder.core.builder: root_model_type=gemma4 component=visual
+2026-11-24 16:26:56,438 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 16:26:56,438 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-24 16:26:56,445 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+Traceback (most recent call last):
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/bin/trtedge", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/cli.py", line 65, in main
+    return module.main(args.arguments, prog=f"{parser.prog} {args.command}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 706, in main
+    _build(args, on_progress=on_progress)
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 410, in _build
+    engine_path = _build_one(build_args, build_bundle, component,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 307, in _build_one
+    result = build_engine(build_args,
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/builder.py", line 490, in build_engine
+    return _build_engine(args, cfg, bundle, plugin_handle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/builder.py", line 645, in _build_engine
+    build_model(net, bundle, cfg, weights, args)
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/models/__init__.py", line 49, in build_model
+    model.build()
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/module.py", line 153, in build
+    outputs = self.forward(**self.input_tensors())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/models/gemma4/modeling_gemma4_visual.py", line 258, in forward
+    hidden = layer(hidden, rotary, cu_seqlens, max_seqlen)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/module.py", line 108, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/models/gemma4/modeling_gemma4_visual.py", line 171, in forward
+    attention = self.self_attn(normalized, rotary, cu_seqlens, max_seqlen)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/module.py", line 108, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/models/gemma4/modeling_gemma4_visual.py", line 105, in forward
+    query = self.q_proj(hidden)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/module.py", line 108, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/models/gemma4/modeling_gemma4_layers.py", line 53, in forward
+    hidden = self.linear(hidden)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/module.py", line 108, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/linear.py", line 87, in forward
+    output = self._project(hidden_states, rank, tp_mode,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/linear.py", line 124, in _project
+    self.weight_descriptor(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/linear.py", line 198, in weight_descriptor
+    descriptor = self._full_descriptor(self.quant_type(), False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/ops/linear.py", line 217, in _full_descriptor
+    return self.weights.linear_descriptor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/weights.py", line 1407, in linear_descriptor
+    descriptor = self.linear_metadata(
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/weights.py", line 1145, in linear_metadata
+    qweight_shape = self.store.shape(self._resolve(weight_name))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/weights.py", line 225, in _resolve
+    raise KeyError(f"checkpoint tensor not found: {name!r}")
+KeyError: "checkpoint tensor not found: 'model.vision_tower.encoder.layers.0.self_attn.q_proj.qweight'"

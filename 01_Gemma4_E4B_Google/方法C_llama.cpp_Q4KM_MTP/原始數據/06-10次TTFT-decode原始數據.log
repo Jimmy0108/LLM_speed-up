@@ -1,0 +1,29 @@
+
+=== Warmup (5 unique requests) ===
+done
+
+=== Test 1: TTFT + Decode (10 unique runs, 64 max tokens) ===
+  Run  1: TTFT=   498ms  decode= 38.0 t/s  total=  2155ms
+  Run  2: TTFT=   258ms  decode= 37.5 t/s  total=  1938ms
+  Run  3: TTFT=   250ms  decode= 38.7 t/s  total=  1879ms
+  Run  4: TTFT=   256ms  decode= 37.5 t/s  total=  1934ms
+  Run  5: TTFT=   253ms  decode= 36.6 t/s  total=  1973ms
+  Run  6: TTFT=   247ms  decode= 37.7 t/s  total=  1917ms
+  Run  7: TTFT=   251ms  decode= 38.7 t/s  total=  1879ms
+  Run  8: TTFT=   246ms  decode= 37.9 t/s  total=  1909ms
+  Run  9: TTFT=   251ms  decode= 37.5 t/s  total=  1929ms
+  Run 10: TTFT=   253ms  decode= 37.7 t/s  total=  1925ms
+
+  TTFT:   median=252ms  min=246  max=498
+  Decode: median=37.7 t/s  min=36.6  max=38.7
+  Total:  median=1927ms
+
+=== Test 2: Prefill (unique prompts, 3 runs each) ===
+  ~23 tok: median=122.1 tok/s
+  ~256 tok: median=434.0 tok/s
+  ~512 tok: median=3196.1 tok/s
+
+=== Memory ===
+Mem:           15533       10716         272          54        4878        4817
+
+Finished: Wed Nov 25 12:10:35 PM UTC 2026

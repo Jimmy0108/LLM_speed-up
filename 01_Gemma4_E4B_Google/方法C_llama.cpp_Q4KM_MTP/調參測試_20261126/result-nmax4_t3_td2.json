@@ -1,0 +1,173 @@
+{
+  "name": "nmax4_t3_td2",
+  "extra_args": [
+    "-md",
+    "/home/jetson/.cache/huggingface/hub/models--ggml-org--gemma-4-E4B-it-GGUF/snapshots/8903cb408c7df39cde2ed15fac397e6d7be92951/mtp-gemma-4-E4B-it-Q4_0.gguf",
+    "--spec-type",
+    "draft-mtp",
+    "--spec-draft-n-max",
+    "4",
+    "-t",
+    "3",
+    "-td",
+    "2"
+  ],
+  "server_load_s": 12.07,
+  "decode": {
+    "median": 40.07217560077639,
+    "min": 38.90762218846111,
+    "max": 41.32830483757648,
+    "n": 10
+  },
+  "ttft_ms": {
+    "median": 244.761,
+    "min": 229.16,
+    "max": 252.897,
+    "n": 10
+  },
+  "prompt_tps": {
+    "median": 169.54799621882404,
+    "min": 164.29507395281928,
+    "max": 183.27805899807996,
+    "n": 10
+  },
+  "draft": {
+    "accepted": 430,
+    "generated": 746,
+    "acceptance_rate": 0.5764075067024129,
+    "mean_len": 43.0
+  },
+  "prefill": [
+    {
+      "target": 256,
+      "prompt_n": 233,
+      "prompt_per_second": 423.1639587805613,
+      "prompt_ms": 550.614
+    },
+    {
+      "target": 512,
+      "prompt_n": 431,
+      "prompt_per_second": 453.9714071744335,
+      "prompt_ms": 949.399
+    },
+    {
+      "target": 1024,
+      "prompt_n": 825,
+      "prompt_per_second": 498.4267838241478,
+      "prompt_ms": 1655.208
+    }
+  ],
+  "ngram": null,
+  "raw_decode": [
+    {
+      "wall_ms": 1888.550153002143,
+      "prompt_n": 42,
+      "prompt_ms": 252.897,
+      "prompt_per_second": 166.0755169100464,
+      "predicted_n": 64,
+      "predicted_ms": 1619.22,
+      "predicted_per_second": 38.90762218846111,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1848.4116879990324,
+      "prompt_n": 42,
+      "prompt_ms": 252.783,
+      "prompt_per_second": 166.15041359585098,
+      "predicted_n": 64,
+      "predicted_ms": 1583.114,
+      "predicted_per_second": 39.794986337054695,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1867.166019976139,
+      "prompt_n": 42,
+      "prompt_ms": 252.516,
+      "prompt_per_second": 166.32609418809105,
+      "predicted_n": 64,
+      "predicted_ms": 1602.566,
+      "predicted_per_second": 39.3119534546471,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1828.408795001451,
+      "prompt_n": 41,
+      "prompt_ms": 249.551,
+      "prompt_per_second": 164.29507395281928,
+      "predicted_n": 64,
+      "predicted_ms": 1566.746,
+      "predicted_per_second": 40.210729754535826,
+      "draft_n": 80,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1832.8647739836015,
+      "prompt_n": 41,
+      "prompt_ms": 242.694,
+      "prompt_per_second": 168.9370153361847,
+      "predicted_n": 64,
+      "predicted_ms": 1577.618,
+      "predicted_per_second": 39.933621447016954,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1796.3668609736487,
+      "prompt_n": 42,
+      "prompt_ms": 246.828,
+      "prompt_per_second": 170.15897710146336,
+      "predicted_n": 64,
+      "predicted_ms": 1537.583,
+      "predicted_per_second": 40.97339785884729,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1773.8425300340168,
+      "prompt_n": 42,
+      "prompt_ms": 237.463,
+      "prompt_per_second": 176.8696596943524,
+      "predicted_n": 64,
+      "predicted_ms": 1524.379,
+      "predicted_per_second": 41.32830483757648,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1842.0341240125708,
+      "prompt_n": 42,
+      "prompt_ms": 239.507,
+      "prompt_per_second": 175.36021911676903,
+      "predicted_n": 64,
+      "predicted_ms": 1590.438,
+      "predicted_per_second": 39.611729599016115,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1788.9686280395836,
+      "prompt_n": 42,
+      "prompt_ms": 229.16,
+      "prompt_per_second": 183.27805899807996,
+      "predicted_n": 64,
+      "predicted_ms": 1547.55,
+      "predicted_per_second": 40.709508578075024,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    },
+    {
+      "wall_ms": 1794.1114529967308,
+      "prompt_n": 42,
+      "prompt_ms": 240.192,
+      "prompt_per_second": 174.86011191047163,
+      "predicted_n": 64,
+      "predicted_ms": 1542.086,
+      "predicted_per_second": 40.85375264414566,
+      "draft_n": 74,
+      "draft_n_accepted": 43
+    }
+  ]
+}

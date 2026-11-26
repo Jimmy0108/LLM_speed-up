@@ -1,0 +1,22 @@
+# 模型權重 / TensorRT 引擎（不納入倉庫）
+*.gguf
+*.safetensors
+*.bin
+*.engine
+*.plan
+*.onnx
+
+# 虛擬環境 / 編譯產物
+.venv*/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.o
+*.so
+build/
+
+# 暫存
+*.tmp
+*.part
+.DS_Store

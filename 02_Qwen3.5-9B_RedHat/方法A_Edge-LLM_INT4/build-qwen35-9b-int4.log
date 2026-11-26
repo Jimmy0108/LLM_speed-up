@@ -1,0 +1,81 @@
+2026-11-24 15:14:10,664 INFO tensorrt_edgellm.builder.core.builder: Loaded plugin library /home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/_native/payloads/jetson-orin-jp72-cu13-sm87/lib/libNvInfer_edgellm_plugin.so
+2026-11-24 15:14:10,665 INFO tensorrt_edgellm.builder: Building 1 engines for qwen3_5: llm
+2026-11-24 15:14:10,665 INFO tensorrt_edgellm.builder: Building component llm
+2026-11-24 15:14:10,750 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:14:10,750 INFO tensorrt_edgellm.builder.core.builder: Using __LUNOWUD=-mlir:autotune:num_threads=1 -mlir:collective:fp4=off -cask_fusion:async_policy=1 -peep:fc_h_fusion=off
+2026-11-24 15:14:10,750 INFO tensorrt_edgellm.builder.core.builder: model_type=qwen3_5_text layers=32 hidden=4096 experts=0 quant=int4_gptq
+2026-11-24 15:14:10,808 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init CUDA: CPU +15, GPU +0, now: CPU 36, GPU 2904 (MiB)
+2026-11-24 15:14:11,132 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:14:11,132 INFO tensorrt_edgellm.builder.core.builder: Externalizing int4_ffn
+2026-11-24 15:14:11,133 INFO tensorrt_edgellm.builder.core.builder: Detected CUDA device 0 with compute capability 8.7
+2026-11-24 15:14:11,136 INFO builder.qwen3_5: building layer 1/32
+2026-11-24 15:14:11,539 INFO builder.qwen3_5: building layer 2/32
+2026-11-24 15:14:11,855 INFO builder.qwen3_5: building layer 3/32
+2026-11-24 15:14:12,178 INFO builder.qwen3_5: building layer 4/32
+[15:14:12.570] [INFO] [pluginJitCompiler.cpp:143:compilePluginJitKernel] Compiled XQA kernel for SM87, dtype=1, kv_dtype=1, head_dim=256, q_heads_per_kv=4, tokens_per_page=128, sliding_window=0, spec_decode=0, contiguous_query_swa=0 with NVRTC (127136 bytes, 377 ms)
+2026-11-24 15:14:12,591 INFO builder.qwen3_5: building layer 5/32
+2026-11-24 15:14:12,945 INFO builder.qwen3_5: building layer 6/32
+2026-11-24 15:14:13,284 INFO builder.qwen3_5: building layer 7/32
+2026-11-24 15:14:13,602 INFO builder.qwen3_5: building layer 8/32
+2026-11-24 15:14:13,656 INFO builder.qwen3_5: building layer 9/32
+2026-11-24 15:14:13,984 INFO builder.qwen3_5: building layer 10/32
+2026-11-24 15:14:14,311 INFO builder.qwen3_5: building layer 11/32
+2026-11-24 15:14:14,637 INFO builder.qwen3_5: building layer 12/32
+2026-11-24 15:14:14,715 INFO builder.qwen3_5: building layer 13/32
+2026-11-24 15:14:15,051 INFO builder.qwen3_5: building layer 14/32
+2026-11-24 15:14:15,390 INFO builder.qwen3_5: building layer 15/32
+2026-11-24 15:14:15,742 INFO builder.qwen3_5: building layer 16/32
+2026-11-24 15:14:15,849 INFO builder.qwen3_5: building layer 17/32
+2026-11-24 15:14:16,214 INFO builder.qwen3_5: building layer 18/32
+2026-11-24 15:14:16,573 INFO builder.qwen3_5: building layer 19/32
+2026-11-24 15:14:16,938 INFO builder.qwen3_5: building layer 20/32
+2026-11-24 15:14:17,077 INFO builder.qwen3_5: building layer 21/32
+2026-11-24 15:14:17,436 INFO builder.qwen3_5: building layer 22/32
+2026-11-24 15:14:17,805 INFO builder.qwen3_5: building layer 23/32
+2026-11-24 15:14:18,212 INFO builder.qwen3_5: building layer 24/32
+2026-11-24 15:14:18,380 INFO builder.qwen3_5: building layer 25/32
+2026-11-24 15:14:19,059 INFO builder.qwen3_5: building layer 26/32
+2026-11-24 15:14:19,981 INFO builder.qwen3_5: building layer 27/32
+2026-11-24 15:14:20,790 INFO builder.qwen3_5: building layer 28/32
+2026-11-24 15:14:20,997 INFO builder.qwen3_5: building layer 29/32
+2026-11-24 15:14:21,733 INFO builder.qwen3_5: building layer 30/32
+2026-11-24 15:14:22,517 INFO builder.qwen3_5: building layer 31/32
+2026-11-24 15:14:23,271 INFO builder.qwen3_5: building layer 32/32
+2026-11-24 15:14:36,401 INFO tensorrt_edgellm.builder.core.artifacts.external_weights: Recorded 256 runtime checkpoint binding(s) (source layouts: compressed-tensors-gptq=256; destination dtypes: F16=128, I8=128)
+2026-11-24 15:14:36,601 INFO tensorrt_edgellm.builder.core.builder: Building serialized engine (this may take several minutes)...
+2026-11-24 15:14:37,308 INFO tensorrt_edgellm.builder.core.builder: [TRT] [MemUsageChange] Init builder kernel library: CPU +172, GPU +183, now: CPU 5475, GPU 7421 (MiB)
+2026-11-24 15:14:37,342 WARNING tensorrt_edgellm.builder.core.builder: [TRT] Unused Input: positions
+2026-11-24 15:14:37,843 WARNING tensorrt_edgellm.builder.core.builder: [TRT] [RemoveDeadLayers] Input Tensor positions is unused or used only at compile-time, but is not being removed.
+2026-11-24 15:14:37,856 INFO tensorrt_edgellm.builder.core.builder: [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+2026-11-24 15:14:37,932 INFO tensorrt_edgellm.builder.core.builder: [TRT] Compiler backend is used during engine build.
+NvMapMemAllocInternalTagged failed: error 12
+Failed ioctlCmd: 1075858947
+NvMapMemHandleAlloc failed: error 12
+NvMapMemAllocInternalTagged failed: error 12
+Failed ioctlCmd: 1075858947
+NvMapMemHandleAlloc failed: error 12
+Internal Error: MyelinCheckException: autotuner.cpp:1097: CHECK(!lpm.mvmf().empty() && "compile resulted in null program?") failed. 
+2026-11-24 15:15:45,979 ERROR tensorrt_edgellm.builder.core.builder: [TRT] Error Code: 9: Skipping tactic 0x0000000000000000 due to exception [autotuner.cpp:1716: operator()] [impl.cpp:309: default_alloc] CUDA error 2 for 2034237696-byte allocation. In compileGraph at /_src/optimizer/myelin/codeGenerator.cpp:1783
+2026-11-24 15:15:46,320 ERROR tensorrt_edgellm.builder.core.builder: [TRT] IBuilder::buildSerializedNetwork: Error Code 10: Internal Error (Could not find any implementation for node {ForeignNode[(Unnamed Layer* 4037) [Shuffle]...(Unnamed Layer* 4053) [Cast]]}. In computeCosts at /_src/optimizer/common/tactic/optimizer.cpp:4265)
+[15:15:46.321] [WARNING] [pluginUtils.cpp:74:builtForCompact] Compact build report: the build queried no attention or recurrent plugin layer of this plugin library (was another copy of the library loaded?); the engine will run without compact steps.
+Traceback (most recent call last):
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/bin/trtedge", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/cli.py", line 65, in main
+    return module.main(args.arguments, prog=f"{parser.prog} {args.command}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 706, in main
+    _build(args, on_progress=on_progress)
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 410, in _build
+    engine_path = _build_one(build_args, build_bundle, component,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/cli.py", line 307, in _build_one
+    result = build_engine(build_args,
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/builder.py", line 490, in build_engine
+    return _build_engine(args, cfg, bundle, plugin_handle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jetson/Desktop/TensorRT_Edge_LLM_Test/.venv-edgellm/lib/python3.12/site-packages/tensorrt_edgellm/builder/core/builder.py", line 675, in _build_engine
+    raise RuntimeError("build_serialized_network returned None")
+RuntimeError: build_serialized_network returned None

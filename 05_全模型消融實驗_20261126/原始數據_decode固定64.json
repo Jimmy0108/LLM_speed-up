@@ -1,0 +1,44 @@
+[
+  {
+    "name": "gemma4_q4km_noMTP",
+    "decode_fixed64_tps": 13.3,
+    "draft_acc": null,
+    "power_w": 8.19,
+    "temp_c": 65.8
+  },
+  {
+    "name": "gemma4_q4km_MTP",
+    "decode_fixed64_tps": 18.2,
+    "draft_acc": 0.092,
+    "power_w": 8.17,
+    "temp_c": 64.7
+  },
+  {
+    "name": "gemma4_q4_0_noMTP",
+    "decode_fixed64_tps": 14.2,
+    "draft_acc": null,
+    "power_w": 7.56,
+    "temp_c": 64.6
+  },
+  {
+    "name": "ornith_v6_noMTP",
+    "decode_fixed64_tps": 9.9,
+    "draft_acc": null,
+    "power_w": 7.78,
+    "temp_c": 66.9
+  },
+  {
+    "name": "ornith_v6_MTP",
+    "decode_fixed64_tps": 18.9,
+    "draft_acc": 0.577,
+    "power_w": 8.02,
+    "temp_c": 66.3
+  },
+  {
+    "name": "qwen35_4b_noMTP",
+    "decode_fixed64_tps": 12.7,
+    "draft_acc": null,
+    "power_w": 7.78,
+    "temp_c": 65.7
+  }
+]

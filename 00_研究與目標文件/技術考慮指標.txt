@@ -1,0 +1,14 @@
+技術	解決的問題	我的優先級
+Selected Vocabulary Head	Draft 詞彙投影成本	S
+Adaptive Draft Length	無效的投機運算	S
+Small GEMM Specialization	Verification 效率	S
+GPU-side Acceptance / Sampling	CPU/GPU 同步	A
+Fused Dequantization	反量化及中間資料讀寫	A
+CUDA Graph Shape Bucketing	不同候選長度的 Graph 重用	A
+PLE Layout Optimization	Embedding 存取效率	A
+Persistent Kernel	重複 Kernel Launch	B
+GPU L2 Cache Locality	資料重用	B
+Split-K Attention	長上下文運算平行性	B
+Zero Copy Memory Allocator	重複 Buffer	B
+ARM NEON / SIMD	CPU 運算	C
+CPU Affinity	Thread 排程與 Cache Locality	C

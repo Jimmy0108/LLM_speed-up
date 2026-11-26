@@ -1,0 +1,357 @@
+**有機會。50 tok/s 是有公開測試支持的合理挑戰目標；60 tok/s 則需要進一步改善 MTP 與底層推理效率。**
+
+我剛剛重新查閱 Little-Gemma 的 GitHub，發現它在 Orin NX 上，對高度可預測的輸出內容，採用 Block-4 MTP 時，已經公布 **57.8 tok/s** 的測試結果。
+
+[image](https://www.google.com/s2/favicons?domain=https://github.com\&sz=32)
+
+cortexist/little-gemma · GitHub
+
+
+
+因此，60 tok/s 並不是完全沒有根據的目標。不過，如果你要求的是一般自然語言、多種任務都能穩定達到 60 tok/s，難度就高很多。
+
+以下我以不更換硬體、不更換 Gemma 4 E4B 主模型、不進行 Fine-tuning 為前提計算。
+
+## **一、從 37 提升至 50～60，需要改善多少？**
+
+目前速度
+
+# **37**
+
+tok/s
+
+第一目標
+
+# **50**
+
++35.14%
+
+第二目標
+
+# **60**
+
++62.16%
+
+### **平均每 Token 耗時（越短越好）**
+
+目前 37 tok/s
+
+**27.03 ms**
+
+目標 50 tok/s
+
+**20.00 ms**
+
+目標 60 tok/s
+
+**16.67 ms**
+
+| 指標            | 目前       | 50 tok/s | 60 tok/s |
+| ------------- | -------- | -------- | -------- |
+| 平均 Token 耗時   | 27.03 ms | 20 ms    | 16.67 ms |
+| 必須節省的時間       | —        | 7.03 ms  | 10.36 ms |
+| 延遲降低比例        | —        | 26%      | 38.33%   |
+| 生成 100 Tokens | 2.70 s   | 2.00 s   | 1.67 s   |
+
+換句話說，你不必將 GPU 算力提高 62%，而是需要透過各種最佳化，讓平均每個輸出 Token 的耗時降低約 38%，就能從 37 達到 60 tok/s。
+
+## **二、從硬體記憶體頻寬計算是否可行**
+
+Orin NX 16GB 的理論 LPDDR5 記憶體頻寬為 102.4 GB/s。
+
+[image](https://www.google.com/s2/favicons?domain=https://www.nvidia.com\&sz=32)
+
+NVIDIA+1
+
+
+
+如果 Decode 受到記憶體頻寬限制，可以使用以下公式估算：
+
+\\[ R\_{\text{decode}}= \frac{BW\_{\text{effective}}} {D\_{\text{per token}}} \\]
+
+其中：
+
+- \\(BW\_{\text{effective}}\\)：實際可使用的記憶體頻寬。
+- \\(D\_{\text{per token}}\\)：平均每個成功輸出的 Token 所需的 DRAM 資料讀寫量。
+
+假設有效頻寬利用率為 80%，則可用頻寬為 81.92 GB/s。
+
+| 目標速度         | 理論頻寬 100%          | 假設有效頻寬 80%         |
+| ------------ | ------------------ | ------------------ |
+| 37 tok/s     | 2.768 GB/token     | 2.214 GB/token     |
+| 40 tok/s     | 2.560 GB/token     | 2.048 GB/token     |
+| 45 tok/s     | 2.276 GB/token     | 1.820 GB/token     |
+| **50 tok/s** | **2.048 GB/token** | **1.638 GB/token** |
+| **60 tok/s** | **1.707 GB/token** | **1.365 GB/token** |
+| 70 tok/s     | 1.463 GB/token     | 1.170 GB/token     |
+
+表中數值代表各目標速度下允許的平均 DRAM 資料流量，而不是目前實際測得的流量。
+
+### **記憶體頻寬與 Decode 極限模擬器**
+
+Orin NX 16GB · 理論頻寬 102.4 GB/s
+
+有效頻寬利用率
+
+**80%**
+
+每輸出 Token 的 DRAM 資料流量
+
+**1.65 GB**
+
+頻寬限制下的估算速度
+
+# **49.65 tok/s**
+
+綠色區域為 50～60 tok/s 目標。此模型尚未計入運算能力、同步與 Kernel Launch 限制。
+
+所以如果你的系統已經接近記憶體頻寬飽和，就必須透過 MTP 的權重重用、Kernel Fusion、Tensor Layout 等技術減少每個成功輸出 Token 的平均資料流量。
+
+單純提高 CPU Thread 數量無法解決這個問題。
+
+## **三、從 MTP 演算法計算是否可行**
+
+這是我認為最有機會突破的地方。
+
+MTP 可以將原本每次主模型運算只生成一個 Token 的模式，改為一次驗證多個候選 Token。
+
+假設你目前的 37 tok/s 是由以下條件達成：
+
+| MTP 工作階段            | 假設耗時       |
+| ------------------- | ---------- |
+| Draft Prediction    | 25 ms      |
+| Target Verification | 65 ms      |
+| Sampling、同步及其他開銷    | 10 ms      |
+| 每輪總耗時               | 100 ms     |
+| 每輪平均成功輸出            | 3.7 Tokens |
+| Decode Speed        | 37 tok/s   |
+
+這組數字是為了建立數學模型而設定的假設，並非你的實測資料。
+
+### **不同最佳化組合的推算**
+
+| 每輪平均輸出 | 每輪耗時     | Decode 速度 |
+| ------ | -------- | --------- |
+| 3.7    | 100 ms   | 37 tok/s  |
+| 4.0    | 100 ms   | 40 tok/s  |
+| 4.5    | 100 ms   | 45 tok/s  |
+| 5.0    | 100 ms   | 50 tok/s  |
+| 4.0    | 80 ms    | 50 tok/s  |
+| 4.5    | 90 ms    | 50 tok/s  |
+| 4.5    | 75 ms    | 60 tok/s  |
+| 4.8    | 80 ms    | 60 tok/s  |
+| 5.0    | 83.33 ms | 60 tok/s  |
+
+能否達到上述平均輸出長度，取決於候選 Token 數量、接受率，以及推理框架的驗證與提交機制。
+
+### **互動式最佳化模擬**
+
+Draft 預測時間
+
+**25 ms**
+
+
+
+Target 驗證時間
+
+**65 ms**
+
+
+
+其他同步開銷
+
+**10 ms**
+
+
+
+每輪平均成功輸出 Token
+
+**3.7**
+
+
+
+每輪時間組成
+
+Draft
+
+Verify
+
+10
+
+估算 Decode Speed
+
+# **37.00 tok/s**
+
+相較 37 tok/s
+
+# **0.0%**
+
+37 基準
+
+50 方案
+
+60 方案
+
+各項變因在真實系統中會互相影響，增加候選長度通常也會增加運算時間。
+
+## **四、使用 Amdahl's Law 計算最佳化的效益**
+
+Amdahl's Law（阿姆達爾定律）是電腦架構及平行運算中非常重要的效能分析方法。
+
+\\[ S=\frac{1}{(1-P)+\frac{P}{s}} \\]
+
+其中 \\(P\\) 為可以加速的程式時間比例，\\(s\\) 為該部分的加速倍率。
+
+假設主模型 Verification 占整個 MTP 流程 65% 的時間，只對這部分進行最佳化，其他部分完全不變：
+
+| Verification 加速倍率 | 整體 Decode 速度 |
+| ----------------- | ------------ |
+| 1.1×              | 39.32 tok/s  |
+| 1.2×              | 41.50 tok/s  |
+| 1.5×              | 47.23 tok/s  |
+| 2.0×              | 54.81 tok/s  |
+| 2.5×              | 60.66 tok/s  |
+| 理論無限快             | 105.71 tok/s |
+
+這說明如果你只最佳化 Verification Kernel，想達到 60 tok/s，可能需要讓這部分接近 2.43 倍加速。
+
+這並不容易，特別是原本已經使用最佳化 CUDA Kernel 的情況下。
+
+**因此應該採用多層級的聯合最佳化，而不是期待單一技術解決所有問題。**
+
+## **五、我會如何設計 50～60 tok/s 的技術方案？**
+
+以下百分比是我設定的實驗改善目標，不是已經有文獻證明能在你的配置上達到的數字。
+
+**Baseline：37 tok/s**
+
+Gemma 4 E4B + MTP
+
+**第一層：MTP Algorithm**
+
+Adaptive Draft Length、Confidence Threshold、N-gram、Acceptance Rate Optimization
+
+**第二層：CUDA Kernel**
+
+Small GEMM、Fused Dequantization、Tensor Core、GPU Sampling、Kernel Fusion
+
+**第三層：Memory Management**
+
+PLE Layout、KV Cache、Memory Coalescing、L2 Cache、Buffer Reuse
+
+**第四層：Runtime Scheduling**
+
+CUDA Graph、CPU Affinity、Synchronization、UMA-Aware Scheduling
+
+# **50～60 tok/s**
+
+聯合最佳化研究目標
+
+| 技術                       | 最佳化的對象         | 實作難度 | 優先程度           |
+| ------------------------ | -------------- | ---- | -------------- |
+| Adaptive MTP             | 每輪成功輸出數        | 中    | 極高             |
+| Selected Vocabulary Head | Draft 運算量      | 中高   | 極高             |
+| Small GEMM Kernel        | Verification   | 高    | 極高             |
+| Fused Dequantization     | 權重讀取與矩陣運算      | 高    | 高              |
+| CUDA Graph               | Kernel Launch  | 中    | 高              |
+| GPU Sampling             | CPU/GPU 同步     | 中高   | 高              |
+| Memory Coalescing        | DRAM 存取效率      | 高    | 高              |
+| PLE Memory Layout        | Embedding 存取   | 高    | 高              |
+| Flash Decoding           | 長上下文 Attention | 高    | 中高             |
+| KV Cache 量化              | Cache 容量與頻寬    | 低    | 中高             |
+| CPU/GPU Scheduling       | 資源競爭           | 高    | 中              |
+| Zero Copy                | 重複資料搬移         | 中高   | 視 Profiling 結果 |
+
+Little-Gemma 已經實際使用其中部分技術，並且公布一般混合任務 38.1 tok/s、C 語言任務 48.5 tok/s，以及高度可預測任務 57.8 tok/s 的結果。這些數據提供了技術可行性的證據，但不代表各項方法的加速倍率可以直接相乘。
+
+[image](https://www.google.com/s2/favicons?domain=https://shadowgraph.io\&sz=32)
+
+Shadowgraph+2
+
+
+
+## **六、只需要兩個條件同時改善，就有機會達到目標**
+
+根據 MTP 的效能模型：
+
+\\[ R\_{\text{new}}= R\_{\text{old}}\times \frac{1+\Delta A}{1-\Delta T} \\]
+
+其中：
+
+- \\(\Delta A\\)：每輪平均成功輸出 Token 數量的提升比例。
+- \\(\Delta T\\)：每輪總執行時間的降低比例。
+
+### **聯合最佳化效能矩陣**
+
+以目前 37 tok/s 為基準，單位為 tok/s
+
+未達 50
+
+50～60
+
+60 以上
+
+這張圖是整個分析最重要的部分。
+
+**達到 50 tok/s 的一種方案：**
+
+\\[ 37\times\frac{1.15}{0.85} =50.06\text{ tok/s} \\]
+
+也就是讓 MTP 每輪成功輸出增加 15%，同時降低整輪時間 15%。
+
+**達到 60 tok/s 的一種方案：**
+
+\\[ 37\times\frac{1.25}{0.77} =60.06\text{ tok/s} \\]
+
+也就是讓 MTP 每輪成功輸出增加 25%，同時降低整輪時間 23%。
+
+數學上可行，工程上則要驗證目前 MTP 是否還有足夠的接受率與運算最佳化空間。
+
+## **七、端到端有機會降低到多少？**
+
+假設 Prefill 提升到 1,000 tok/s，且不使用 Prefix Cache，先忽略其他額外開銷：
+
+| 輸入 / 輸出           | 37 tok/s | 50 tok/s | 60 tok/s |
+| ----------------- | -------- | -------- | -------- |
+| 128 / 16 Tokens   | 0.560 s  | 0.448 s  | 0.395 s  |
+| 128 / 32 Tokens   | 0.993 s  | 0.768 s  | 0.661 s  |
+| 256 / 32 Tokens   | 1.121 s  | 0.896 s  | 0.789 s  |
+| 512 / 32 Tokens   | 1.377 s  | 1.152 s  | 1.045 s  |
+| 512 / 64 Tokens   | 2.242 s  | 1.792 s  | 1.579 s  |
+| 1024 / 128 Tokens | 4.483 s  | 3.584 s  | 3.157 s  |
+
+這些是固定吞吐率的理論估算，不含 API、Tokenization、排程、取樣及其他額外延遲。
+
+## **八、我的最終研究目標建議**
+
+Prefill 目標
+
+# **1,200+**
+
+tokens/s
+
+MTP Decode 目標
+
+# **50–60**
+
+tokens/s
+
+TTFT 目標
+
+# **200**
+
+ms 以下（128 Token 短輸入）
+
+E2E 目標
+
+# **0.8**
+
+秒以下（128 輸入 / 32 輸出）
+
+固定 Jetson Orin NX 16GB、Gemma 4 E4B，不重新訓練主模型。以上均為研究目標，非實測保證。
+
+我會把 **50 tok/s 作為主要研究目標，60 tok/s 作為進階挑戰目標**，並且要求在多種 Prompt 下測試平均速度及 P95 延遲，而不只是挑選最快的單一問題。
+
+目前還不知道你使用的推理框架版本、MTP 接受率、Draft Length、量化格式及實際 EMC 頻寬，所以無法計算出真正的硬體極限。
+
+但從現有公開測試與上述數學模型來看，我認為這個方向值得繼續研究。尤其是 **MTP 自適應排程 + Small GEMM 專用 CUDA Kernel + UMA 記憶體存取最佳化**，這三者結合，比單純調整現有部署參數更有機會讓你突破 37 tok/s。

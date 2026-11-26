@@ -1,0 +1,30 @@
+{"id": "h18-001", "category": "C18_cross_clause", "lang": "zh", "prompt": "先去中庭，再去檔案室。還沒到中庭，會先碰到玄關", "expected": ["玄關", "中庭", "檔案室"], "pad_to_tokens": 0}
+{"id": "h18-002", "category": "C18_cross_clause", "lang": "zh", "prompt": "從門廳出發去洽談室。在到達洽談室以前，會先看到收發室", "expected": ["門廳", "收發室", "洽談室"], "pad_to_tokens": 0}
+{"id": "h18-003", "category": "C18_cross_clause", "lang": "zh", "prompt": "先到醫護室，然後到觀察室。去醫護室之前別忘了先到哺乳室", "expected": ["哺乳室", "醫護室", "觀察室"], "pad_to_tokens": 0}
+{"id": "h18-004", "category": "C18_cross_clause", "lang": "zh", "prompt": "要去治療室，之後去檢驗室。往治療室走之前，先繞去儲水間", "expected": ["儲水間", "治療室", "檢驗室"], "pad_to_tokens": 0}
+{"id": "h18-005", "category": "C18_cross_clause", "lang": "zh", "prompt": "先到廣場，再去後門。進廣場前必須先在郵務室換證", "expected": ["郵務室", "廣場", "後門"], "pad_to_tokens": 0}
+{"id": "h18-006", "category": "C18_cross_clause", "lang": "zh", "prompt": "從迴廊走到攝影棚，沿路會看到洗衣間", "expected": ["迴廊", "洗衣間", "攝影棚"], "pad_to_tokens": 0}
+{"id": "h18-007", "category": "C18_cross_clause", "lang": "zh", "prompt": "先到天台，再去配音間。天台和配音間之間有個蒸飯間", "expected": ["天台", "蒸飯間", "配音間"], "pad_to_tokens": 0}
+{"id": "h18-008", "category": "C18_cross_clause", "lang": "zh", "prompt": "從樣品室過去器材庫，路上順便經過更衣室", "expected": ["樣品室", "更衣室", "器材庫"], "pad_to_tokens": 0}
+{"id": "h18-009", "category": "C18_cross_clause", "lang": "zh", "prompt": "先到檔案室，再去醫護室。中間還有個門廳", "expected": ["檔案室", "門廳", "醫護室"], "pad_to_tokens": 0}
+{"id": "h18-010", "category": "C18_cross_clause", "lang": "zh", "prompt": "從中庭到檔案室，儲水間那邊就免了", "expected": ["中庭", "檔案室"], "pad_to_tokens": 0}
+{"id": "h18-011", "category": "C18_cross_clause", "lang": "zh", "prompt": "先到觀察室，再到治療室。洗衣間可以跳過", "expected": ["觀察室", "治療室"], "pad_to_tokens": 0}
+{"id": "h18-012", "category": "C18_cross_clause", "lang": "zh", "prompt": "先去郵務室，再去收發室。不用特地繞去天台", "expected": ["郵務室", "收發室"], "pad_to_tokens": 0}
+{"id": "h19-001", "category": "C19_correction", "lang": "zh", "prompt": "先去攝影棚，再去配音間。講錯了，配音間才在前面", "expected": ["配音間", "攝影棚"], "pad_to_tokens": 0}
+{"id": "h19-002", "category": "C19_correction", "lang": "zh", "prompt": "從樣品室到器材庫。欸，反過來，先器材庫", "expected": ["器材庫", "樣品室"], "pad_to_tokens": 0}
+{"id": "h19-003", "category": "C19_correction", "lang": "zh", "prompt": "打算先到哺乳室，再去醫護室。我記錯了，其實是醫護室先", "expected": ["醫護室", "哺乳室"], "pad_to_tokens": 0}
+{"id": "h19-004", "category": "C19_correction", "lang": "zh", "prompt": "要去檢驗室。啊不對，改成觀察室吧", "expected": ["觀察室"], "pad_to_tokens": 0}
+{"id": "h19-005", "category": "C19_correction", "lang": "zh", "prompt": "目的地是廣場。更正一下，是後門不是廣場", "expected": ["後門"], "pad_to_tokens": 0}
+{"id": "h19-006", "category": "C19_correction", "lang": "zh", "prompt": "想辦法到迴廊。算了，改去天台", "expected": ["天台"], "pad_to_tokens": 0}
+{"id": "h19-007", "category": "C19_correction", "lang": "zh", "prompt": "要去檔案室。另外，洽談室也排進去", "expected": ["檔案室", "洽談室"], "pad_to_tokens": 0}
+{"id": "h19-008", "category": "C19_correction", "lang": "zh", "prompt": "先到玄關。順道一提，門廳也要", "expected": ["玄關", "門廳"], "pad_to_tokens": 0}
+{"id": "h19-009", "category": "C19_correction", "lang": "zh", "prompt": "到蒸飯間。喔對，更衣室別忘了", "expected": ["蒸飯間", "更衣室"], "pad_to_tokens": 0}
+{"id": "h19-010", "category": "C19_correction", "lang": "zh", "prompt": "先去儲水間，再去洗衣間。儲水間取消，只去洗衣間", "expected": ["洗衣間"], "pad_to_tokens": 0}
+{"id": "h19-011", "category": "C19_correction", "lang": "zh", "prompt": "從前門到中庭。中庭不去了，就到前門為止", "expected": ["前門"], "pad_to_tokens": 0}
+{"id": "h19-012", "category": "C19_correction", "lang": "zh", "prompt": "先到器材庫，再到樣品室。把器材庫刪掉", "expected": ["樣品室"], "pad_to_tokens": 0}
+{"id": "h20-001", "category": "C20_distractor", "lang": "zh", "prompt": "從廣場到檔案室。早上在洽談室開完會了", "expected": ["廣場", "檔案室"], "pad_to_tokens": 0}
+{"id": "h20-002", "category": "C20_distractor", "lang": "zh", "prompt": "先到醫護室，再去檢驗室。治療室的鑰匙我放你桌上", "expected": ["醫護室", "檢驗室"], "pad_to_tokens": 0}
+{"id": "h20-003", "category": "C20_distractor", "lang": "zh", "prompt": "先去玄關，然後去門廳。上週天台漏水修好了", "expected": ["玄關", "門廳"], "pad_to_tokens": 0}
+{"id": "h20-004", "category": "C20_distractor", "lang": "zh", "prompt": "從攝影棚到配音間。更衣室的預約改到明天", "expected": ["攝影棚", "配音間"], "pad_to_tokens": 0}
+{"id": "h20-005", "category": "C20_distractor", "lang": "zh", "prompt": "先到收發室，再去郵務室。哺乳室的燈壞了", "expected": ["收發室", "郵務室"], "pad_to_tokens": 0}
+{"id": "h20-006", "category": "C20_distractor", "lang": "zh", "prompt": "從中庭到迴廊。儲水間的水龍頭還在滴水", "expected": ["中庭", "迴廊"], "pad_to_tokens": 0}

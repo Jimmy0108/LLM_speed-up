@@ -1,0 +1,26 @@
+Resolving checkpoint [0.0s]
+Checking engine cache [0.0s]
+Building engine (first run can take several minutes) [0.0s]
+Building text engine (1/2) [0.5s]
+WARNING: [TRT] Unused Input: positions
+WARNING: [TRT] [RemoveDeadLayers] Input Tensor positions is unused or used only at compile-time, but is not being removed.
+Building text engine (1/2) [30.0s]
+Building text engine (1/2) [60.0s]
+Building text engine (1/2) [90.0s]
+Building text engine (1/2) [120.0s]
+Building vision engine (2/2) [134.8s]
+Building vision engine (2/2) [150.0s]
+Building vision engine (2/2) [180.0s]
+Building vision engine (2/2) [210.0s]
+Building vision engine (2/2) [240.0s]
+Building vision engine (2/2) [270.0s]
+Engine outputs:
+  llm: /home/jetson/.cache/tensorrt-edgellm/engines/model-b6ddd0a4ab378850/.building-ji8tqgkr/llm.engine (17574460 bytes)
+  visual: /home/jetson/.cache/tensorrt-edgellm/engines/model-b6ddd0a4ab378850/.building-ji8tqgkr/visual/visual.engine (15206132 bytes)
+Multistage config: /home/jetson/.cache/tensorrt-edgellm/engines/model-b6ddd0a4ab378850/.building-ji8tqgkr/multistage_config.json
+Engine build complete; saved to cache [278.9s]
+Loading runtime and capturing CUDA graphs [278.9s]
+Loading runtime and capturing CUDA graphs [304.4s]
+Ready [305.2s]
+Hello, World!
+prompt 145.3 tok/s | generation 11.2 tok/s | context 27/8.19K (0%) | TTFT 0.155s | total 0.520s

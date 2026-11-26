@@ -1,0 +1,23 @@
+  Run  1: TTFT=254ms  decode=16.2 t/s  total=4142ms
+  Run  2: TTFT=150ms  decode=16.3 t/s  total=4016ms
+  Run  3: TTFT=148ms  decode=16.3 t/s  total=4020ms
+  Run  4: TTFT=138ms  decode=16.3 t/s  total=4000ms
+  Run  5: TTFT=138ms  decode=16.3 t/s  total=4008ms
+  Run  6: TTFT=138ms  decode=16.3 t/s  total=4008ms
+  Run  7: TTFT=138ms  decode=16.3 t/s  total=4005ms
+  Run  8: TTFT=138ms  decode=16.3 t/s  total=4011ms
+  Run  9: TTFT=136ms  decode=16.3 t/s  total=4007ms
+  Run 10: TTFT=138ms  decode=16.3 t/s  total=4002ms
+
+  TTFT:   median=138ms  mean=152ms  min=136ms  max=254ms
+  Decode: median=16.3 t/s  mean=16.3 t/s  min=16.2  max=16.3
+  Total:  median=4008ms  p95=4020ms
+  Short  ~23 tok: 130.2 tok/s (median of 3)
+  Medium ~256 tok: 1586.4 tok/s (median of 3)
+  Long   ~512 tok: 4828.8 tok/s (median of 3)
+  XLong ~1024 tok: 9026.4 tok/s (median of 3)
+  Requests: 20
+  TTFT:  median=0ms  p95=0ms
+  Total: median=2141ms  p95=2148ms  max=2187ms
+  Success: 20/20
+Finished: Wed Nov 25 06:30:28 AM UTC 2026
