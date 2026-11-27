@@ -1,0 +1,16 @@
+{
+ "tag": "np4",
+ "nav_n": 30,
+ "em": 0.9667,
+ "f1": 0.9889,
+ "nav_e2e_median_ms": 600.5,
+ "nav_e2e_warm_median_ms": 600.0,
+ "nav_prompt_ms_median": 356.9,
+ "stab_n": 10,
+ "stab_e2e_median_ms": 608.5,
+ "stab_e2e_p95_ms": 619.2,
+ "stab_e2e_max_ms": 619.2,
+ "stab_decode_median": 33.43,
+ "stab_prompt_ms_median": 354.4,
+ "stab_unique_outputs": 1
+}

@@ -1,0 +1,16 @@
+{
+ "tag": "nocache",
+ "nav_n": 124,
+ "em": 0.8952,
+ "f1": 0.9742,
+ "nav_e2e_median_ms": 536.1,
+ "nav_e2e_warm_median_ms": 534.2,
+ "nav_prompt_ms_median": 326.3,
+ "stab_n": 100,
+ "stab_e2e_median_ms": 505.1,
+ "stab_e2e_p95_ms": 519.8,
+ "stab_e2e_max_ms": 523.3,
+ "stab_decode_median": 32.28,
+ "stab_prompt_ms_median": 254.9,
+ "stab_unique_outputs": 1
+}

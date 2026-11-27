@@ -1,0 +1,16 @@
+{
+ "tag": "cache64",
+ "nav_n": 124,
+ "em": 0.8952,
+ "f1": 0.9742,
+ "nav_e2e_median_ms": 594.5,
+ "nav_e2e_warm_median_ms": 593.9,
+ "nav_prompt_ms_median": 337.2,
+ "stab_n": 100,
+ "stab_e2e_median_ms": 474.1,
+ "stab_e2e_p95_ms": 509.1,
+ "stab_e2e_max_ms": 665.4,
+ "stab_decode_median": 24.24,
+ "stab_prompt_ms_median": 139.1,
+ "stab_unique_outputs": 1
+}

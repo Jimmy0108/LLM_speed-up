@@ -1,0 +1,16 @@
+{
+ "tag": "np1",
+ "nav_n": 30,
+ "em": 0.9667,
+ "f1": 0.9889,
+ "nav_e2e_median_ms": 497.5,
+ "nav_e2e_warm_median_ms": 493.7,
+ "nav_prompt_ms_median": 248.2,
+ "stab_n": 10,
+ "stab_e2e_median_ms": 495.7,
+ "stab_e2e_p95_ms": 515.7,
+ "stab_e2e_max_ms": 515.7,
+ "stab_decode_median": 33.53,
+ "stab_prompt_ms_median": 254.1,
+ "stab_unique_outputs": 1
+}

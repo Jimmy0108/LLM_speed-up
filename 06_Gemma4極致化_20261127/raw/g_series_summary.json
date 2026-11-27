@@ -1,0 +1,253 @@
+{
+ "fusion": {
+  "base": {
+   "json": {
+    "n": 15,
+    "decode_median": 66.71,
+    "prefill_median": 119.5,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 15,
+    "decode_median": 25.15,
+    "prefill_median": 78.8,
+    "accept": 0.19
+   },
+   "prefill": {
+    "n": 5,
+    "decode_median": 0.0,
+    "prefill_median": 398.8,
+    "accept": 0
+   }
+  },
+  "mmqq4": {
+   "json": {
+    "n": 10,
+    "decode_median": 65.53,
+    "prefill_median": 114.1,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 10,
+    "decode_median": 24.32,
+    "prefill_median": 78.6,
+    "accept": 0.19
+   },
+   "prefill": {
+    "n": 3,
+    "decode_median": 0.0,
+    "prefill_median": 389.1,
+    "accept": 0
+   }
+  },
+  "graphopt": {
+   "json": {
+    "n": 15,
+    "decode_median": 66.05,
+    "prefill_median": 111.4,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 15,
+    "decode_median": 25.04,
+    "prefill_median": 76.8,
+    "accept": 0.19
+   },
+   "prefill": {
+    "n": 5,
+    "decode_median": 0.0,
+    "prefill_median": 395.9,
+    "accept": 0
+   }
+  },
+  "nofuse": {
+   "json": {
+    "n": 15,
+    "decode_median": 66.02,
+    "prefill_median": 117.8,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 15,
+    "decode_median": 23.4,
+    "prefill_median": 80.1,
+    "accept": 0.182
+   },
+   "prefill": {
+    "n": 5,
+    "decode_median": 0.0,
+    "prefill_median": 384.3,
+    "accept": 0
+   }
+  },
+  "mmqq8": {
+   "json": {
+    "n": 10,
+    "decode_median": 66.11,
+    "prefill_median": 114.4,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 10,
+    "decode_median": 24.57,
+    "prefill_median": 78.3,
+    "accept": 0.19
+   },
+   "prefill": {
+    "n": 3,
+    "decode_median": 0.0,
+    "prefill_median": 392.3,
+    "accept": 0
+   }
+  },
+  "nograph": {
+   "json": {
+    "n": 10,
+    "decode_median": 59.45,
+    "prefill_median": 116.3,
+    "accept": 0.75
+   },
+   "prose": {
+    "n": 10,
+    "decode_median": 22.1,
+    "prefill_median": 79.6,
+    "accept": 0.19
+   },
+   "prefill": {
+    "n": 3,
+    "decode_median": 0.0,
+    "prefill_median": 390.3,
+    "accept": 0
+   }
+  }
+ },
+ "nav": {
+  "ub256": {
+   "tag": "ub256",
+   "nav_n": 30,
+   "em": 0.9667,
+   "f1": 0.9889,
+   "nav_e2e_median_ms": 495.0,
+   "nav_e2e_warm_median_ms": 494.7,
+   "nav_prompt_ms_median": 251.3,
+   "stab_n": 10,
+   "stab_e2e_median_ms": 494.9,
+   "stab_e2e_p95_ms": 515.3,
+   "stab_e2e_max_ms": 515.3,
+   "stab_decode_median": 32.55,
+   "stab_prompt_ms_median": 245.2,
+   "stab_unique_outputs": 1
+  },
+  "ub1024": {
+   "tag": "ub1024",
+   "nav_n": 30,
+   "em": 0.9667,
+   "f1": 0.9889,
+   "nav_e2e_median_ms": 627.9,
+   "nav_e2e_warm_median_ms": 626.6,
+   "nav_prompt_ms_median": 330.1,
+   "stab_n": 10,
+   "stab_e2e_median_ms": 671.0,
+   "stab_e2e_p95_ms": 685.3,
+   "stab_e2e_max_ms": 685.3,
+   "stab_decode_median": 24.09,
+   "stab_prompt_ms_median": 334.6,
+   "stab_unique_outputs": 1
+  },
+  "cache64": {
+   "tag": "cache64",
+   "nav_n": 124,
+   "em": 0.8952,
+   "f1": 0.9742,
+   "nav_e2e_median_ms": 594.5,
+   "nav_e2e_warm_median_ms": 593.9,
+   "nav_prompt_ms_median": 337.2,
+   "stab_n": 100,
+   "stab_e2e_median_ms": 474.1,
+   "stab_e2e_p95_ms": 509.1,
+   "stab_e2e_max_ms": 665.4,
+   "stab_decode_median": 24.24,
+   "stab_prompt_ms_median": 139.1,
+   "stab_unique_outputs": 1
+  },
+  "ub512": {
+   "tag": "ub512",
+   "nav_n": 30,
+   "em": 0.9667,
+   "f1": 0.9889,
+   "nav_e2e_median_ms": 493.0,
+   "nav_e2e_warm_median_ms": 492.9,
+   "nav_prompt_ms_median": 248.4,
+   "stab_n": 10,
+   "stab_e2e_median_ms": 609.8,
+   "stab_e2e_p95_ms": 680.0,
+   "stab_e2e_max_ms": 680.0,
+   "stab_decode_median": 27.56,
+   "stab_prompt_ms_median": 314.8,
+   "stab_unique_outputs": 1
+  },
+  "np4": {
+   "tag": "np4",
+   "nav_n": 30,
+   "em": 0.9667,
+   "f1": 0.9889,
+   "nav_e2e_median_ms": 600.5,
+   "nav_e2e_warm_median_ms": 600.0,
+   "nav_prompt_ms_median": 356.9,
+   "stab_n": 10,
+   "stab_e2e_median_ms": 608.5,
+   "stab_e2e_p95_ms": 619.2,
+   "stab_e2e_max_ms": 619.2,
+   "stab_decode_median": 33.43,
+   "stab_prompt_ms_median": 354.4,
+   "stab_unique_outputs": 1
+  },
+  "nocache": {
+   "tag": "nocache",
+   "nav_n": 124,
+   "em": 0.8952,
+   "f1": 0.9742,
+   "nav_e2e_median_ms": 536.1,
+   "nav_e2e_warm_median_ms": 534.2,
+   "nav_prompt_ms_median": 326.3,
+   "stab_n": 100,
+   "stab_e2e_median_ms": 505.1,
+   "stab_e2e_p95_ms": 519.8,
+   "stab_e2e_max_ms": 523.3,
+   "stab_decode_median": 32.28,
+   "stab_prompt_ms_median": 254.9,
+   "stab_unique_outputs": 1
+  },
+  "np1": {
+   "tag": "np1",
+   "nav_n": 30,
+   "em": 0.9667,
+   "f1": 0.9889,
+   "nav_e2e_median_ms": 497.5,
+   "nav_e2e_warm_median_ms": 493.7,
+   "nav_prompt_ms_median": 248.2,
+   "stab_n": 10,
+   "stab_e2e_median_ms": 495.7,
+   "stab_e2e_p95_ms": 515.7,
+   "stab_e2e_max_ms": 515.7,
+   "stab_decode_median": 33.53,
+   "stab_prompt_ms_median": 254.1,
+   "stab_unique_outputs": 1
+  }
+ },
+ "bandwidth": {
+  "theoretical_gbps": 102.4,
+  "d2d_copy_gbps": 66.4,
+  "read_only_gbps": 57.3,
+  "emc_mhz": 3199,
+  "note": "512MB read kernel / 256MB D2D copy, EMC 3199MHz, GR3D 99%"
+ },
+ "model_bytes": {
+  "total_gb": 4.961,
+  "per_layer_token_embd_gb": 1.938,
+  "token_embd_gb": 0.377,
+  "transformer_gb": 2.591,
+  "per_layer_model_proj_gb": 0.055,
+  "active_per_step_gb": 3.023
+ }
+}

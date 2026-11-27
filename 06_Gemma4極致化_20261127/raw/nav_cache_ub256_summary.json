@@ -1,0 +1,16 @@
+{
+ "tag": "ub256",
+ "nav_n": 30,
+ "em": 0.9667,
+ "f1": 0.9889,
+ "nav_e2e_median_ms": 495.0,
+ "nav_e2e_warm_median_ms": 494.7,
+ "nav_prompt_ms_median": 251.3,
+ "stab_n": 10,
+ "stab_e2e_median_ms": 494.9,
+ "stab_e2e_p95_ms": 515.3,
+ "stab_e2e_max_ms": 515.3,
+ "stab_decode_median": 32.55,
+ "stab_prompt_ms_median": 245.2,
+ "stab_unique_outputs": 1
+}
