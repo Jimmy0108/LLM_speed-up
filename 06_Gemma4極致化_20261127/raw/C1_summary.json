@@ -1,0 +1,21 @@
+{
+  "think_decode": {
+    "fixed_nmax6": {"decode_tps": 42.4, "accept": 0.481, "e2e_ms": 3259},
+    "fixed_nmax4": {"decode_tps": 40.5, "accept": 0.597},
+    "fixed_nmax8": {"decode_tps": 39.2, "accept": 0.406},
+    "fixed_nmax10": {"decode_tps": 38.0, "accept": 0.354},
+    "fixed_nmax12": {"decode_tps": 36.4, "accept": 0.316},
+    "adapt_cap4": {"decode_tps": 38.6, "accept": 0.592},
+    "adapt_cap6": {"decode_tps": 41.1, "accept": 0.502},
+    "kv_q4_0": {"decode_tps": 38.7, "accept": 0.444},
+    "fa_off": "BROKEN (sm_87 gemma4 global head_dim=512)"
+  },
+  "short_e2e": {
+    "fixed_nmax6": {"e2e_ms": 727, "decode": 29.4},
+    "fixed_nmax3": {"e2e_ms": 693, "decode": 32.3},
+    "adapt_cap3": {"e2e_ms": 708, "decode": 36.2},
+    "adapt_cap6": {"e2e_ms": 835, "decode": 24.6}
+  },
+  "correctness": "adaptive greedy output byte-identical to fixed (lossless)",
+  "conclusion": "n-max6 fixed is thinking peak (42.4); adaptive does not beat best-fixed; 50 t/s not achievable on Q4_K_M (GPU 97% mem-bound, mmq-few already optimal)"
+}

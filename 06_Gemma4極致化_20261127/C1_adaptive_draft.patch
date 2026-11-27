@@ -1,0 +1,132 @@
+--- /tmp/opencode/c1_backup/common.h	2026-11-27 15:16:33.506631830 +0000
++++ common/common.h	2026-11-27 15:16:46.692109284 +0000
+@@ -346,6 +346,10 @@
+     float p_split = 0.1f; // speculative decoding split probability
+     float p_min   = 0.0f; // minimum speculative decoding probability (greedy)
+ 
++    bool adaptive = false;      // C1: adapt draft length to rolling acceptance rate
++    float adapt_lo = 0.25f;     // C1: if rolling accept < lo, shrink n_max
++    float adapt_hi = 0.55f;     // C1: if rolling accept > hi, grow n_max
++
+     bool backend_sampling = true; // offload draft sampling to the backend (default: on)
+ 
+     bool probabilistic = false; // sample the draft and verify by rejection, instead of argmax and match
+--- /tmp/opencode/c1_backup/arg.cpp	2026-11-27 15:16:33.506631830 +0000
++++ common/arg.cpp	2026-11-27 15:16:56.386254674 +0000
+@@ -4254,6 +4254,29 @@
+         }
+     ).set_spec().set_examples({LLAMA_EXAMPLE_SPECULATIVE, LLAMA_EXAMPLE_SERVER, LLAMA_EXAMPLE_CLI}).set_env("LLAMA_ARG_SPEC_DRAFT_P_MIN"));
+     add_opt(common_arg(
++        {"--spec-adaptive"},
++        {"--no-spec-adaptive"},
++        string_format("C1: adapt draft length to rolling acceptance rate (default: %s)",
++                      params.speculative.draft.adaptive ? "enabled" : "disabled"),
++        [](common_params & params, bool value) {
++            params.speculative.draft.adaptive = value;
++        }
++    ).set_spec().set_examples({LLAMA_EXAMPLE_SPECULATIVE, LLAMA_EXAMPLE_SERVER, LLAMA_EXAMPLE_CLI}).set_env("LLAMA_ARG_SPEC_ADAPTIVE"));
++    add_opt(common_arg(
++        {"--spec-adapt-lo"}, "P",
++        string_format("C1: lower acceptance threshold to shrink n_max (default: %.2f)", (double)params.speculative.draft.adapt_lo),
++        [](common_params & params, const std::string & value) {
++            params.speculative.draft.adapt_lo = std::stof(value);
++        }
++    ).set_spec().set_examples({LLAMA_EXAMPLE_SPECULATIVE, LLAMA_EXAMPLE_SERVER, LLAMA_EXAMPLE_CLI}).set_env("LLAMA_ARG_SPEC_ADAPT_LO"));
++    add_opt(common_arg(
++        {"--spec-adapt-hi"}, "P",
++        string_format("C1: upper acceptance threshold to grow n_max (default: %.2f)", (double)params.speculative.draft.adapt_hi),
++        [](common_params & params, const std::string & value) {
++            params.speculative.draft.adapt_hi = std::stof(value);
++        }
++    ).set_spec().set_examples({LLAMA_EXAMPLE_SPECULATIVE, LLAMA_EXAMPLE_SERVER, LLAMA_EXAMPLE_CLI}).set_env("LLAMA_ARG_SPEC_ADAPT_HI"));
++    add_opt(common_arg(
+         {"--spec-draft-backend-sampling"},
+         {"--no-spec-draft-backend-sampling"},
+         string_format("offload draft sampling to the backend (default: %s)",
+--- /tmp/opencode/c1_backup/speculative.cpp	2026-11-27 15:16:33.506631830 +0000
++++ common/speculative.cpp	2026-11-27 15:17:40.333846954 +0000
+@@ -1537,6 +1537,16 @@
+ 
+     int32_t n_embd = 0;
+ 
++    // C1 adaptive draft length: track rolling acceptance and shrink/grow n_max per round.
++    // Speculative decoding is lossless, so changing n_max never changes the output tokens.
++    bool    adapt_on   = false;
++    float   adapt_lo   = 0.25f;
++    float   adapt_hi   = 0.55f;
++    float   adapt_r_ema = -1.0f;   // EWMA of per-round acceptance rate, <0 = unset
++    int32_t adapt_cap  = 0;        // hard upper bound (original n_max)
++    int32_t adapt_floor = 1;       // lower bound
++    std::vector<int32_t> adapt_drafted; // drafted token count of the last round, per seq
++
+     // One MTP draft driver, three modes (set once in the ctor):
+     //   is_mem_shared (gemma4): shares the target KV, runs all heads in one graph.
+     //   chain_heads (step35): n_mtp_layers trained heads, one per draft step.
+@@ -1621,6 +1631,14 @@
+         is_mem_shared = llama_get_ctx_other(ctx_dft) == ctx_tgt;
+         chain_heads   = n_mtp_layers > 1 && !is_mem_shared;
+ 
++        // C1: initialise adaptive draft state
++        adapt_on    = this->params.adaptive;
++        adapt_lo    = this->params.adapt_lo;
++        adapt_hi    = this->params.adapt_hi;
++        adapt_cap   = this->params.n_max;
++        adapt_floor = std::max(1, this->params.n_min);
++        adapt_drafted.assign(n_seq, 0);
++
+         llama_set_embeddings_nextn(ctx_tgt, true, /*masked*/ is_mem_shared);
+         llama_set_embeddings_nextn(ctx_dft, true, /*masked*/ true);
+ 
+@@ -1848,6 +1866,16 @@
+ 
+         batch.clear();
+ 
++        // C1: adjust n_max for this round based on the previous round's rolling acceptance.
++        // Only shrink/grow by one step per round to avoid oscillation.
++        if (adapt_on && adapt_r_ema >= 0.0f) {
++            if (adapt_r_ema < adapt_lo) {
++                params.n_max = std::max(adapt_floor, params.n_max - 1);
++            } else if (adapt_r_ema > adapt_hi) {
++                params.n_max = std::min(adapt_cap, params.n_max + 1);
++            }
++        }
++
+         // keep track of which sequences are still drafting
+         int n_drafting = 0;
+         std::vector<bool> drafting(n_seq);
+@@ -1997,6 +2025,15 @@
+             llama_set_nextn_layer_offset(ctx_dft, 0); // restore default for non-draft decodes
+         }
+ 
++        // C1: record how many tokens were drafted this round (for the acceptance EWMA).
++        for (llama_seq_id seq_id = 0; seq_id < (llama_seq_id) n_seq; ++seq_id) {
++            auto & dp = dparams[seq_id];
++            if (!dp.drafting) {
++                continue;
++            }
++            adapt_drafted[seq_id] = (int32_t) dp.result->size();
++        }
++
+         for (llama_seq_id seq_id = 0; seq_id < (llama_seq_id) n_seq; ++seq_id) {
+             auto & dp = dparams[seq_id];
+             if (!dp.drafting) {
+@@ -2014,6 +2051,19 @@
+             return;
+         }
+ 
++        // C1: update the rolling acceptance EWMA from this round's result.
++        if (adapt_on) {
++            const int32_t drafted = adapt_drafted[seq_id];
++            if (drafted > 0) {
++                const float r = (float) n_accepted / (float) drafted;
++                adapt_r_ema = (adapt_r_ema < 0.0f) ? r : (0.7f * adapt_r_ema + 0.3f * r);
++            } else {
++                // nothing drafted (e.g. cleared by n_min): treat as a fully-missed round
++                const float r = 0.0f;
++                adapt_r_ema = (adapt_r_ema < 0.0f) ? r : (0.7f * adapt_r_ema + 0.3f * r);
++            }
++        }
++
+         const int32_t n_rows = verify_h_rows[seq_id];
+         if (n_rows <= 0) {
+             return;
