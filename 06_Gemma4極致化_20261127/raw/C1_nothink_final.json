@@ -1,0 +1,9 @@
+{
+  "config": "n-max6 + thinking OFF, 128 tok, 5 questions x 3 = 15 samples",
+  "decode_median_tps": 25.4,
+  "decode_mean_tps": 25.1,
+  "decode_range_tps": [21.2, 29.3],
+  "e2e_median_ms": 5349,
+  "draft_accept": 0.204,
+  "note": "thinking OFF long answer ~25 t/s; MTP accept 0.20 vs 0.48 (thinking ON)"
+}
