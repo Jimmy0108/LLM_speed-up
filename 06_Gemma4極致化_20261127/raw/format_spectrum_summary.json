@@ -1,0 +1,47 @@
+{
+  "experiment": "format spectrum + 74 outlier verification",
+  "date": "2026-11-27",
+  "config": "Gemma 4 E4B Q4_K_M + MTP Q4_0, n-max8 unless noted, thinking OFF, temp 0, 128 tok, cache_prompt false",
+  "format_spectrum_nmax8": {
+    "json_canonical_short": {"accept": 0.750, "decode_tps": 64.5, "range": [62.3, 66.0], "e2e_ms": 1450, "pred_n": 78, "n": 10},
+    "json_6item_128tok": {"accept": 0.539, "decode_tps": 48.7, "e2e_ms": 2926, "pred_n": 128, "n": 15},
+    "json_random_suffix": {"accept": 0.550, "decode_tps": 50.0, "e2e_ms": 1900, "pred_n": 82, "n": 10},
+    "code": {"accept": 0.231, "decode_tps": 27.4, "e2e_ms": 4948, "n": 15},
+    "table": {"accept": 0.197, "decode_tps": 23.3, "e2e_ms": 5767, "n": 15},
+    "prose_open": {"accept": 0.142, "decode_tps": 19.7, "e2e_ms": 6756, "n": 15},
+    "bullets": {"accept": 0.135, "decode_tps": 19.8, "e2e_ms": 6728, "n": 15}
+  },
+  "free_form_nmax_sweep": {
+    "n1": {"accept": 0.520, "decode_tps": 18.7},
+    "n2": {"accept": 0.395, "decode_tps": 20.4},
+    "n3": {"accept": 0.375, "decode_tps": 27.0, "note": "best free-form"},
+    "n4": {"accept": 0.255, "decode_tps": 24.3},
+    "n5": {"accept": 0.219, "decode_tps": 24.2},
+    "n6": {"accept": 0.204, "decode_tps": 25.4},
+    "n8": {"accept": 0.142, "decode_tps": 21.2}
+  },
+  "no_mtp_json": {"decode_tps": 11.9, "pred_n": 78, "n": 5},
+  "step_economics": {
+    "formula": "decode = (1 + accept*n) / t_step",
+    "free_n3": {"tokens_per_step": 2.12, "step_ms": 78.7},
+    "free_n8": {"tokens_per_step": 2.14, "step_ms": 100.8},
+    "json_canonical_n8": {"tokens_per_step": 7.00, "step_ms": 108.5},
+    "no_mtp": {"tokens_per_step": 1.0, "step_ms": 84.0}
+  },
+  "accept_needed_for_30tps": {
+    "n3": 0.454,
+    "n4": 0.373,
+    "n5": 0.319,
+    "n6": 0.271,
+    "n8": 0.253,
+    "actual_n3": 0.375
+  },
+  "outlier_74": {
+    "value": 74.4,
+    "stable_canonical": 64.5,
+    "verdict": "single-sample outlier (~15% above stable band), not reproducible",
+    "gpu_clock_under_load_mhz": 1173,
+    "gpu_clock_samples": 73
+  },
+  "conclusion": "All speedup is speculative acceptance. JSON canonical short = 63-66 t/s; free-form ceiling = 27.0 at n-max3; 30+ requires structured output, thinking-on reasoning, or a better draft model. 74 is an outlier."
+}
