@@ -1,0 +1,13 @@
+{
+  "finding": "structured (JSON) output makes thinking-OFF long decode 2.3x faster",
+  "free_form_thinkoff": {"nmax3": {"decode_tps": 25.4, "accept": 0.20, "e2e_ms": 5349}},
+  "json_thinkoff": {
+    "nmax3": {"decode_tps": 44.0, "accept": 0.731, "e2e_ms": 2330},
+    "nmax4": {"decode_tps": 47.8, "accept": 0.695, "e2e_ms": 1999},
+    "nmax6": {"decode_tps": 52.6, "accept": 0.647, "e2e_ms": 1852},
+    "nmax8": {"decode_tps": 57.3, "accept": 0.600, "e2e_ms": 1970},
+    "nmax10": {"decode_tps": 58.2, "accept": 0.544, "e2e_ms": 1858}
+  },
+  "json_valid": true,
+  "conclusion": "50+ t/s IS reachable for structured content; free-form thinking-off stays ~25"
+}
