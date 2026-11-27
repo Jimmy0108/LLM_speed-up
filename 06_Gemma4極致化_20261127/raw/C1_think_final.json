@@ -1,0 +1,9 @@
+{
+  "config": "n-max6 + thinking ON, 128 tok, 5 questions x 3 = 15 samples",
+  "decode_median_tps": 39.9,
+  "decode_mean_tps": 40.5,
+  "decode_range_tps": [37.0, 47.5],
+  "e2e_median_ms": 3542,
+  "draft_accept": 0.480,
+  "note": "44.4 earlier was 2-sample high; stable median ~40, peak 47.5 on predictable content"
+}
