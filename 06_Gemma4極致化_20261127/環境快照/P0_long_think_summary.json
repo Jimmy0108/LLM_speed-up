@@ -1,0 +1,20 @@
+{
+  "phase": "P0",
+  "config": "long_think",
+  "n": 8,
+  "note": "",
+  "env": {
+    "load": 3.78,
+    "bg_running": 5,
+    "ram_avail_mb": 4893,
+    "swap_used_mb": 0,
+    "power_mw": 9604,
+    "temp_c": 61.7,
+    "gr3d": 34
+  },
+  "prefill_tps": 374.6,
+  "decode_tps": 26.1,
+  "e2e_ms": 5381.8,
+  "ttft_ms": 512.5,
+  "accept_rate": 0.26
+}

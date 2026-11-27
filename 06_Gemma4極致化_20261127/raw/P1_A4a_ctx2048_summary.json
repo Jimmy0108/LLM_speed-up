@@ -1,0 +1,20 @@
+{
+  "phase": "P1",
+  "config": "A4a_ctx2048",
+  "n": 30,
+  "note": "",
+  "env": {
+    "load": 2.59,
+    "bg_running": 1,
+    "ram_avail_mb": 5135,
+    "swap_used_mb": 0,
+    "power_mw": 8002,
+    "temp_c": 61.6,
+    "gr3d": 36
+  },
+  "prefill_tps": 427.4,
+  "decode_tps": 19.5,
+  "e2e_ms": 608.9,
+  "ttft_ms": 444.8,
+  "accept_rate": 0.336
+}

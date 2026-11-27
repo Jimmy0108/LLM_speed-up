@@ -1,0 +1,20 @@
+{
+  "phase": "P1",
+  "config": "B1_nmax6",
+  "n": 6,
+  "note": "",
+  "env": {
+    "load": 2.14,
+    "bg_running": 1,
+    "ram_avail_mb": 5317,
+    "swap_used_mb": 0,
+    "power_mw": 7694,
+    "temp_c": 62.3,
+    "gr3d": 59
+  },
+  "prefill_tps": 430.1,
+  "decode_tps": 29.4,
+  "e2e_ms": 4767.1,
+  "ttft_ms": 447.5,
+  "accept_rate": 0.252
+}

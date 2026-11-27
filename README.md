@@ -17,6 +17,11 @@
 > 導航 e2e（124 題平均）：**Gemma4+MTP 900ms**、Ornith v6+MTP 1259ms。
 > 自然思考內容的 Gemma4 decode 可達 **40.5 t/s**（01 調參報告），與強制 64 token 的 18.2 量測條件不同，請勿混用。
 
+> **最新（2026-11-27）**：完成雙目標極致化（[06_Gemma4極致化_20261127](06_Gemma4極致化_20261127/報告/總結.md)）。
+> 短答：**lite 規則 + n-max3 + ctx2048 → E2E 545–635ms、EM 88.7%**（原 731ms/82.3%）。
+> 長答：**thinking ON → decode 40.8 t/s**（雙路徑長答 44.4）。
+> 瓶頸：GPU 利用率 97%、功耗 20.6W、無降頻；50 t/s 需改 kernel（Adaptive draft）。
+
 ---
 
 ## 一、目錄結構
@@ -49,6 +54,11 @@ LLM_加速歸檔_20261126/
     ├── 全模型消融實驗報告.md
     ├── datasets/                      ← nav_testset / nav_holdout（可重現）
     └── run_ablation.py / decode_test.py
+└── 06_Gemma4極致化_20261127/         ← 雙目標極致化（短答 E2E / 長答 decode）
+    ├── 報告/（Phase0–5b + 總結）
+    ├── raw/（逐請求 JSONL + runsheet + summary）
+    ├── bench_dual.py / run_one.sh
+    └── 對話紀錄.md
 ```
 
 ---

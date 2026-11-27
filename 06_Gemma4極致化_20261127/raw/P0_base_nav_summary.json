@@ -1,0 +1,20 @@
+{
+  "phase": "P0",
+  "config": "base_nav",
+  "n": 30,
+  "note": "",
+  "env": {
+    "load": 4.08,
+    "bg_running": 1,
+    "ram_avail_mb": 4837,
+    "swap_used_mb": 0,
+    "power_mw": 7846,
+    "temp_c": 58.4,
+    "gr3d": 28
+  },
+  "prefill_tps": 410.3,
+  "decode_tps": 16.2,
+  "e2e_ms": 685.1,
+  "ttft_ms": 464.7,
+  "accept_rate": 0.264
+}

@@ -1,0 +1,20 @@
+{
+  "phase": "P1",
+  "config": "A2d_nmax3",
+  "n": 30,
+  "note": "",
+  "env": {
+    "load": 2.52,
+    "bg_running": 1,
+    "ram_avail_mb": 5116,
+    "swap_used_mb": 0,
+    "power_mw": 7694,
+    "temp_c": 61.4,
+    "gr3d": 50
+  },
+  "prefill_tps": 419.4,
+  "decode_tps": 18.1,
+  "e2e_ms": 641.2,
+  "ttft_ms": 457.3,
+  "accept_rate": 0.316
+}

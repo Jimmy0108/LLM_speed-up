@@ -1,0 +1,20 @@
+{
+  "phase": "P1",
+  "config": "A1_pmin02",
+  "n": 30,
+  "note": "",
+  "env": {
+    "load": 2.85,
+    "bg_running": 1,
+    "ram_avail_mb": 5275,
+    "swap_used_mb": 0,
+    "power_mw": 8150,
+    "temp_c": 62.3,
+    "gr3d": 44
+  },
+  "prefill_tps": 428.0,
+  "decode_tps": 19.4,
+  "e2e_ms": 638.1,
+  "ttft_ms": 448.1,
+  "accept_rate": 0.398
+}
